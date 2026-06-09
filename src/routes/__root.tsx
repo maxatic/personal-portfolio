@@ -151,6 +151,7 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <HeadContent />
       </head>
       <body
@@ -171,6 +172,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ThemeToggle />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <main className="flex min-h-screen flex-col">
         <Outlet />
