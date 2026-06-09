@@ -4,8 +4,7 @@
 import { ChatRequestOptions } from 'ai';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUp } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
-import { FastfolioTracking } from '@/lib/fastfolio-tracking';
+import React from 'react';
 
 interface ChatBottombarProps {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -30,12 +29,6 @@ export default function ChatBottombar({
   disabled = false,
 }: ChatBottombarProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const [remainingMessages, setRemainingMessages] = useState(0);
-  
-  useEffect(() => {
-    // Update remaining messages count
-    setRemainingMessages(FastfolioTracking.getRemainingMessages());
-  }, [input]); // Update when input changes (user is typing)
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (
