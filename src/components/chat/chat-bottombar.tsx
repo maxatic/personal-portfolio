@@ -4,7 +4,7 @@
 import { ChatRequestOptions } from 'ai';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUp } from 'lucide-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface ChatBottombarProps {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
