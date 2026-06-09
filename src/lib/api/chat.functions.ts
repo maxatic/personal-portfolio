@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
-import { openai } from "@ai-sdk/openai";
 import { streamText, type Message } from "ai";
+import { createLovableAiGatewayProvider } from "../ai-gateway.server";
 
 import { SYSTEM_PROMPT } from "../chat/prompt";
 import { getContact } from "../chat/tools/getContact";
@@ -40,8 +40,14 @@ export const chatStream = createServerFn({ method: "POST" })
         getInternship,
       };
 
+      const apiKey = process.env.LOVABLE_API_KEY;
+      if (!apiKey) {
+        return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+      }
+      const gateway = createLovableAiGatewayProvider(apiKey);
+
       const result = streamText({
-        model: openai("gpt-4o-mini"),
+        model: gateway("google/gemini-3-flash-preview"),
         messages,
         toolCallStreaming: true,
         tools,
