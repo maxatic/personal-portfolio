@@ -107,6 +107,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Interactive portfolio with an AI-powered Memoji that answers questions about me",
       },
       { name: "twitter:creator", content: "@toukoum" },
+      { name: "description", content: "Quick Start HTML creates a new project with a single HTML file for testing." },
+      { property: "og:description", content: "Quick Start HTML creates a new project with a single HTML file for testing." },
+      { name: "twitter:description", content: "Quick Start HTML creates a new project with a single HTML file for testing." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
