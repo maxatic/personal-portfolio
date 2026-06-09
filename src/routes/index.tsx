@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FastfolioCTA } from "@/components/fastfolio-cta";
+
 import FluidCursor from "@/components/FluidCursor";
 import { Button } from "@/components/ui/button";
 import WelcomeModal from "@/components/welcome-modal";
@@ -94,7 +94,7 @@ function Home() {
         </div>
       </div>
 
-      <FastfolioCTA />
+      
 
       {/* header */}
       <motion.div
