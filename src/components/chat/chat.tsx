@@ -1,8 +1,8 @@
 'use client';
 import { useChat } from '@ai-sdk/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
+import { chatStream } from '@/lib/api/chat.functions';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -46,10 +46,8 @@ interface AvatarProps {
   isTalking: boolean;
 }
 
-// Dynamic import of Avatar component
-const Avatar = dynamic<AvatarProps>(
-  () =>
-    Promise.resolve(({ hasActiveTool, videoRef, isTalking }: AvatarProps) => {
+// Avatar component (rendered client-side only, inside <ClientOnly>)
+const Avatar = ({ hasActiveTool, videoRef }: AvatarProps) => {
       // This function will only execute on the client
       const isIOS = () => {
         // Multiple detection methods
@@ -106,9 +104,7 @@ const Avatar = dynamic<AvatarProps>(
           </div>
         </div>
       );
-    }),
-  { ssr: false }
-);
+};
 
 const MOTION_CONFIG = {
   initial: { opacity: 0, y: 20 },
@@ -116,7 +112,7 @@ const MOTION_CONFIG = {
   exit: { opacity: 0, y: 20 },
   transition: {
     duration: 0.3,
-    ease: 'easeOut',
+    ease: 'easeOut' as const,
   },
 };
 
@@ -144,6 +140,18 @@ const Chat = () => {
     addToolResult,
     append,
   } = useChat({
+    // Route useChat through the TanStack Start server function instead of a
+    // Next.js API route. The server fn returns the AI SDK data-stream Response
+    // (passed through raw via x-tss-raw), so streaming works as before.
+    fetch: (async (_input: RequestInfo | URL, init?: RequestInit) => {
+      const body = init?.body
+        ? JSON.parse(init.body as string)
+        : { messages: [] };
+      return await chatStream({
+        data: { messages: body.messages },
+        signal: init?.signal ?? undefined,
+      });
+    }) as typeof fetch,
     onResponse: (response) => {
       if (response) {
         setLoadingSubmit(false);

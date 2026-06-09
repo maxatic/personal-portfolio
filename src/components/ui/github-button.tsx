@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { getGithubStars } from '@/lib/api/github.functions';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Star } from 'lucide-react';
 import {
@@ -97,11 +98,11 @@ function GithubButton({
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
-  // Fetch stars from GitHub API
+  // Fetch stars from GitHub via TanStack Start server function
   useEffect(() => {
-    fetch('/api/github-stars')
-      .then((res) => res.json())
-      .then((data) => setTargetStars(data.stars));
+    getGithubStars()
+      .then((data) => setTargetStars(data.stars))
+      .catch(() => setTargetStars(0));
   }, []);
 
   const startAnimation = useCallback(() => {

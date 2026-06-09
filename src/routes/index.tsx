@@ -1,10 +1,9 @@
-'use client';
-
-import { FastfolioCTA } from '@/components/fastfolio-cta';
-import FluidCursor from '@/components/FluidCursor';
-import { Button } from '@/components/ui/button';
-import WelcomeModal from '@/components/welcome-modal';
-import { motion } from 'framer-motion';
+import { createFileRoute } from "@tanstack/react-router";
+import { FastfolioCTA } from "@/components/fastfolio-cta";
+import FluidCursor from "@/components/FluidCursor";
+import { Button } from "@/components/ui/button";
+import WelcomeModal from "@/components/welcome-modal";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -12,44 +11,48 @@ import {
   Layers,
   PartyPopper,
   UserRoundSearch,
-} from 'lucide-react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+} from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+
+export const Route = createFileRoute("/")({
+  component: Home,
+});
 
 /* ---------- quick-question data ---------- */
 const questions = {
-  Me: 'Who are you? I want to know more about you.',
-  Projects: 'What are your projects? What are you working on right now?',
-  Skills: 'What are your skills? Give me a list of your soft and hard skills.',
-  Fun: 'What’s the craziest thing you’ve ever done? What are your hobbies?',
-  Contact: 'How can I contact you?',
+  Me: "Who are you? I want to know more about you.",
+  Projects: "What are your projects? What are you working on right now?",
+  Skills: "What are your skills? Give me a list of your soft and hard skills.",
+  Fun: "What's the craziest thing you've ever done? What are your hobbies?",
+  Contact: "How can I contact you?",
 } as const;
 
 const questionConfig = [
-  { key: 'Me', color: '#329696', icon: Laugh },
-  { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
-  { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
-  { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
+  { key: "Me", color: "#329696", icon: Laugh },
+  { key: "Projects", color: "#3E9858", icon: BriefcaseBusiness },
+  { key: "Skills", color: "#856ED9", icon: Layers },
+  { key: "Fun", color: "#B95F9D", icon: PartyPopper },
+  { key: "Contact", color: "#C19433", icon: UserRoundSearch },
 ] as const;
 
 /* ---------- component ---------- */
-export default function Home() {
-  const [input, setInput] = useState('');
+function Home() {
+  const [input, setInput] = useState("");
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const goToChat = (query: string) =>
     router.push(`/chat?query=${encodeURIComponent(query)}`);
 
-  /* hero animations (unchanged) */
+  /* hero animations */
   const topElementVariants = {
     hidden: { opacity: 0, y: -60 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'ease', duration: 0.8 },
+      transition: { duration: 0.8 },
     },
   };
   const bottomElementVariants = {
@@ -57,26 +60,25 @@ export default function Home() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'ease', duration: 0.8, delay: 0.2 },
+      transition: { duration: 0.8, delay: 0.2 },
     },
   };
 
   useEffect(() => {
-    // Précharger les assets du chat en arrière-plan
+    // Preload chat assets in the background
     const img = new window.Image();
-    img.src = '/landing-memojis.png';
+    img.src = "/landing-memojis.png";
 
-    // Précharger les vidéos aussi
-    const linkWebm = document.createElement('link');
-    linkWebm.rel = 'preload'; // Note: prefetch au lieu de preload
-    linkWebm.as = 'video';
-    linkWebm.href = '/final_memojis.webm';
+    const linkWebm = document.createElement("link");
+    linkWebm.rel = "preload";
+    linkWebm.as = "video";
+    linkWebm.href = "/final_memojis.webm";
     document.head.appendChild(linkWebm);
 
-    const linkMp4 = document.createElement('link');
-    linkMp4.rel = 'prefetch';
-    linkMp4.as = 'video';
-    linkMp4.href = '/final_memojis_ios.mp4';
+    const linkMp4 = document.createElement("link");
+    linkMp4.rel = "prefetch";
+    linkMp4.as = "video";
+    linkMp4.href = "/final_memojis_ios.mp4";
     document.head.appendChild(linkMp4);
   }, []);
 
@@ -86,13 +88,13 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden">
         <div
           className="hidden bg-gradient-to-b from-neutral-500/10 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem]"
-          style={{ marginBottom: '-2.5rem' }}
+          style={{ marginBottom: "-2.5rem" }}
         >
           Toukoum
         </div>
       </div>
 
-      <FastfolioCTA/>
+      <FastfolioCTA />
 
       {/* header */}
       <motion.div
@@ -155,7 +157,7 @@ export default function Home() {
               aria-label="Submit question"
               className="flex items-center justify-center rounded-full bg-[#0171E3] p-2.5 text-white transition-colors hover:bg-blue-600 disabled:opacity-70 dark:bg-blue-600 dark:hover:bg-blue-700"
             >
-              <ArrowRight  className="h-5 w-5" />
+              <ArrowRight className="h-5 w-5" />
             </button>
           </div>
         </form>
