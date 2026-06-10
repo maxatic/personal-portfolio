@@ -297,12 +297,9 @@ const Chat = () => {
 
       {/* Fixed Avatar Header with Gradient */}
       <div
-        className="fixed top-0 right-0 left-0 z-50"
-        style={{
-          background:
-            'linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%)',
-        }}
+        className="fixed top-0 right-0 left-0 z-50 bg-gradient-to-b from-background via-background/80 to-transparent"
       >
+
         <div
           className={`transition-all duration-300 ease-in-out ${hasActiveTool ? 'pt-6 pb-0' : 'py-6'}`}
         >
