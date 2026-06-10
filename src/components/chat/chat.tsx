@@ -297,12 +297,9 @@ const Chat = () => {
 
       {/* Fixed Avatar Header with Gradient */}
       <div
-        className="fixed top-0 right-0 left-0 z-50"
-        style={{
-          background:
-            'linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%)',
-        }}
+        className="fixed top-0 right-0 left-0 z-50 bg-gradient-to-b from-background via-background/80 to-transparent"
       >
+
         <div
           className={`transition-all duration-300 ease-in-out ${hasActiveTool ? 'pt-6 pb-0' : 'py-6'}`}
         >
@@ -380,7 +377,7 @@ const Chat = () => {
         </div>
 
         {/* Fixed Bottom Bar */}
-        <div className="sticky bottom-0 bg-white px-2 pt-3 md:px-0 md:pb-4">
+        <div className="sticky bottom-0 bg-background px-2 pt-3 md:px-0 md:pb-4">
           <div className="relative flex flex-col items-center gap-3">
             <HelperBoost submitQuery={submitQuery} setInput={setInput} hasReachedLimit={hasReachedLimit} />
             <ChatBottombar
