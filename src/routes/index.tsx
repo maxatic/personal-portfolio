@@ -169,9 +169,9 @@ function Home() {
               key={key}
               onClick={() => goToChat(questions[key])}
               variant="outline"
-              className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 shadow-none backdrop-blur-lg active:scale-95 md:p-10"
+              className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 shadow-none backdrop-blur-lg active:scale-95 md:p-10 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10"
             >
-              <div className="flex h-full flex-col items-center justify-center gap-1 text-gray-700">
+              <div className="flex h-full flex-col items-center justify-center gap-1 text-gray-700 dark:text-neutral-100">
                 <Icon size={22} strokeWidth={2} color={color} />
                 <span className="text-xs font-medium sm:text-sm">{key}</span>
               </div>
