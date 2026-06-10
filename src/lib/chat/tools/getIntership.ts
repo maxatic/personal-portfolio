@@ -3,25 +3,25 @@ import { z } from 'zod';
 
 export const getInternship = tool({
   description:
-    "Gives a summary of what kind of internship I'm looking for, plus my contact info and how to reach me. Use this tool when the user asks about my internship search or how to contact me for opportunities.",
+    "Gives a summary of what kind of full-time role I'm looking for, plus my contact info and how to reach me. Use this tool when the user asks about my job search, hiring me, or how to contact me for opportunities.",
   parameters: z.object({}),
   execute: async () => {
-    return `Here’s what I’m looking for 👇
+    return `Here's what I'm looking for 👇
 
-- 📅 **Duration**: 6-month internship starting **September 2025**
-- 🌍 **Location**: Preferably **San Francisco** or anywhere in the **United States**
-- 🧑‍💻 **Focus**: AI development, full-stack web apps, SaaS, agentic workflows
-- 🛠️ **Stack**: Python, React/Next.js, Tailwind CSS, TypeScript, GPT, RAG, etc.
-- 💼 **Visa**: I’m based in Paris 🇫🇷 so I might need **J-1 sponsorship**
-- ✅ **What I bring**: Real experience with secure on-prem GPTs (Lighton), deepsearch engines, custom RAG tools, and hackathon wins like **ETH Oxford** & **Paris Blockchain Week**
-- 🔥 I move fast, learn faster, and I’m HUNGRYYYYY for big challenges
+- 📅 **Availability**: Full-time from **October 2026** (after I graduate from TUM)
+- 🌍 **Location**: **Munich / Germany** 🇩🇪 or remote
+- 🧑‍💻 **Roles**: Product Manager, AI Product Manager, or Strategy / Operations
+- 🎯 **Focus**: AI products & tooling, data-driven operations, cross-functional execution
+- 🛠️ **Toolkit**: Product & program management, data analytics (SQL, Python, R), RAG/LLM tooling, Figma, KPI systems
+- ✅ **What I bring**: Real impact at Amazon — a RAG AI assistant that cut metric retrieval time 80%, $250K Q4 logistics savings, and ~3 years across Amazon, TUM, and startups
+- 🚀 I ship fast, automate everything I can, and turn messy data into clear decisions
 
 📬 **Contact me** via:
-- Email: raphaelgiraud12@gmail.com
-- LinkedIn: [linkedin.com/in/raphael-giraud](https://www.linkedin.com/in/raphael-giraud-ai/)
-- GitHub: [github.com/raphaelgiraud](https://github.com/toukoum)
+- Email: issaliyev.maxat@gmail.com
+- LinkedIn: [linkedin.com/in/maxat-issaliyev](https://www.linkedin.com/in/maxat-issaliyev/)
+- GitHub: [github.com/maxissaliyev](https://github.com/maxissaliyev)
 
-Let's build cool shit together ✌️
+Let's build something great together ✌️
     `;
   },
 });

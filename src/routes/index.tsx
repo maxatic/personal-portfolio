@@ -25,7 +25,7 @@ const questions = {
   Me: "Who are you? I want to know more about you.",
   Projects: "What are your projects? What are you working on right now?",
   Skills: "What are your skills? Give me a list of your soft and hard skills.",
-  Fun: "What's the craziest thing you've ever done? What are your hobbies?",
+  Fun: "What are your hobbies? Tell me about gaming and Formula 1.",
   Contact: "How can I contact you?",
 } as const;
 
@@ -90,7 +90,7 @@ function Home() {
           className="hidden bg-gradient-to-b from-neutral-500/20 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem] dark:from-white/30 dark:to-white/0"
           style={{ marginBottom: "-2.5rem" }}
         >
-          Toukoum
+          Issaliyev
         </div>
       </div>
 
@@ -108,10 +108,10 @@ function Home() {
         </div>
 
         <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
-          Hey, I'm Aaaaby 👋
+          Hey, I'm Max 👋
         </h2>
         <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
-          AI Engineer
+          Product Manager
         </h1>
       </motion.div>
 

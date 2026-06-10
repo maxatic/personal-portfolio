@@ -5,333 +5,123 @@ import { Separator } from '@/components/ui/separator';
 import { url } from 'inspector';
 
 // Enhanced project content array with all projects
+// NOTE: image paths below are placeholders — drop your own screenshots into /public
+// using these filenames, or update the paths to match your assets.
 const PROJECT_CONTENT = [
   {
-    title: 'Synto',
+    title: 'Amazon AI Assistant',
     description:
-      'Synto is an AI-powered interface that transforms complex blockchain interactions into simple, natural language commands. Whether you want to send tokens, stake assets, swap coins, or even create NFTs or liquidity pools, just tell Synto what to do — no manual wallet interactions, no technical jargon. One of my biggest projects yet',
+      'A RAG-based internal AI assistant I built during my Product Manager internship at Amazon Supply Chain. It indexed a knowledge base of 1,500+ files and automated the drafting of MBR/QBR reports, cutting metric retrieval time by 80%. This work was part of why I received the Continuous Learning & Development Award within an 80+ person team. (Internal Amazon project — details are anonymised.)',
     techStack: [
-      'Next.js',
-      'TailwindCSS',
-      'Web3.js',
-      'shadcn-ui',
-      'TypeScript',
-      'Phantom Wallet',
-      'OpenAI API',
-      'Vercel AI SDK',
-      'Solana Agent kit',
-      'Neon',
-      'Prisma'
+      'RAG',
+      'LLM',
+      'Python',
+      'Prompt Engineering',
+      'Data Pipelines',
+      'Internal Tooling',
     ],
     date: '2025',
-    links: [
-      {
-        name: 'website',
-        url: 'https://synto.fun',
-      },
-      {
-        name: 'Launch Video',
-        url: 'https://www.youtube.com/watch?v=4QUE2KgKDUw',
-      },
-      {
-        name: 'X',
-        url: 'https://x.com/chainSynto',
-      },
-      {
-        name: 'Technical Video',
-        url: 'https://www.youtube.com/watch?v=1CjBLKPUwtA&feature=youtu.be',
-      },
-      {
-        name: 'Pitch Deck',
-        url: 'https://drive.google.com/file/d/1B3m44mEgv81rJHfjNfTKi147yX4raQed/view?usp=sharing',
-      },
-      {
-        name: 'Usage tutorial',
-        url: 'https://www.youtube.com/watch?v=PRu1cfvT2bA',
-      }
-    ],
+    links: [],
     images: [
       {
-        src: '/synto1.png',
-        alt: 'Synto landing page',
-      },
-      {
-        src: '/synto2.png',
-        alt: 'Synto chat interface',
-      },
-      {
-        src: '/synto3.png',
-        alt: 'Synto chat interface',
-      },
-      {
-        src: '/synto4.png',
-        alt: 'Synto chat interface',
-      },
-      {
-        src: '/synto5.png',
-        alt: 'Synto chat interface',
-      },
-      {
-        src: '/synto6.png',
-        alt: 'Synto chat interface',
+        src: '/project-amazon-ai.png',
+        alt: 'Amazon AI assistant concept',
       },
     ],
   },
   {
-    title: 'Rrate',
+    title: 'AI Portfolio',
     description:
-      "Rrate is a fun website to allow user to compare his salary with the richest people in the world. Try it now it's online!",
-    techStack: ['Html', 'Css', 'Javascript'],
-    date: '2024',
-    links: [
-      {
-        name: 'website',
-        url: 'https://rrate.app',
-      },
-      {
-        name: 'github',
-        url: 'https://github.com/toukoum/Rrate',
-      },
-    ],
-    images: [
-      {
-        src: '/rrate1.png',
-        alt: 'Rrate landing page',
-      },
-      {
-        src: '/rrate2.png',
-        alt: 'Rrate comparison page',
-      },
-      {
-        src: '/rrate3.png',
-        alt: 'Rrate comparison page',
-      },
-    ],
-  },
-  {
-    title: 'Defai',
-    description:
-      "We Win ETHOXford hackathon by building DEFAI. DEFAI stands for Decentralized Finance Artificial Intelligence. It's an AI-powered chat interface that simplifies on-chain operations on the Avalanche blockchain by allowing users to interact using natural language. This makes complex DeFi operations accessible even for those with limited technical expertise.",
+      "This very portfolio — an interactive, AI-powered experience where visitors chat with an avatar of me instead of scrolling a static page. It adapts to whatever you're curious about: my background, projects, skills, or how to reach me. Built on TanStack Start with the Vercel AI SDK.",
     techStack: [
-      'Next.js',
-      'TailwindCSS',
-      'shadcn-ui',
+      'React',
+      'TanStack Start',
+      'TypeScript',
+      'Tailwind CSS',
       'Vercel AI SDK',
-      'TypeScript',
+      'Framer Motion',
     ],
-    date: '2025',
-    links: [
-      {
-        name: 'website',
-        url: 'https://dorahacks.io/buidl/22605',
-      },
-      {
-        name: 'github',
-        url: 'https://github.com/toukoum/DEFAI',
-      },
-      {
-        name: 'LinkedIn',
-        url: 'https://www.linkedin.com/feed/update/urn:li:activity:7299337190151483392/',
-      },
-      {
-        name: 'Youtube Video',
-        url: 'https://www.youtube.com/watch?v=N9O7los4-ng&t=34s&ab_channel=Toukoum',
-      }
-    ],
+    date: '2026',
+    links: [],
     images: [
       {
-        src: '/defai1.png',
-        alt: 'Landing Page of Defai',
-      },
-      {
-        src: '/defai2.png',
-        alt: 'Confirmation popup of Defai',
-      },
-      {
-        src: '/defai3.png',
-        alt: 'Chatbot of Defai',
-      },
-      {
-        src: '/defai4.jpeg',
-        alt: 'Winner team',
+        src: '/project-portfolio.png',
+        alt: 'AI Portfolio landing page',
       },
     ],
   },
   {
-    title: 'Fitgear',
+    title: 'CardioGuard',
     description:
-      'Won the Gotta Go Hack IA by building Fitgear, a virtual voice seller accessible by QR code to improve the ratio between customers and sellers. Created an AI pipeline with API calls and a RAG system for natural language interactions.',
-    techStack: ['Next.js', 'TailwindCSS', 'OpenAI API', 'Langchain'],
-    date: '2024',
-    links: [
-      {
-        name: 'Linkedin',
-        url: 'https://www.linkedin.com/posts/raphael-giraud-60939519a_hackathon-innovation-sporttech-activity-7210399263774674946-qSXq?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC6vwikBVSEkS7XWktWS7y6GR3GHwAlKslc',
-      },
-    ],
-    images: [
-      {
-        src: '/fitgear2.png',
-        alt: 'Fitgear chatbot',
-      },
-      {
-        src: '/fitgear1.png',
-        alt: 'Fitgear landing page',
-      },
-    ],
-  },
-  {
-    title: 'Datai',
-    description:
-      "DATAI is an AI-powered agent that lets non-technical users query a database using natural language without writing SQL. Built using Next.js, TailwindCSS, shadcn-ui, and Anthropic's Claude API, this project focuses on simplicity, speed, and user-friendly design.",
+      'A machine-learning web app that predicts heart-disease risk from patient data using a Random Forest classifier, with SHAP explainability so the predictions are interpretable. It ships role-based dashboards (different views per user type) and JWT-secured REST APIs — a full ML product end-to-end, not just a notebook.',
     techStack: [
-      'Next.js',
-      'TailwindCSS',
-      'shadcn-ui',
-      'Claude API',
-      'TypeScript',
+      'Python',
+      'Django',
+      'scikit-learn',
+      'SHAP',
+      'REST API',
+      'JWT Auth',
     ],
     date: '2024',
-    links: [
-      {
-        name: 'GitHub',
-        url: 'https://github.com/toukoum/datai',
-      },
-      {
-        name: 'Youtube Video Demo',
-        url: 'https://youtu.be/iE0RXjdbQsw',
-      }
-    ],
+    links: [],
     images: [
       {
-        src: '/datai1.png',
-        alt: 'Datai landing page',
+        src: '/project-cardioguard.png',
+        alt: 'CardioGuard dashboard',
       },
-      {
-        src: '/datai2.png',
-        alt: 'Datai chatbot',
-      },
-      {
-        src: '/datai3.png',
-        alt: 'Datai chatbot',
-      },
-      {
-        src: '/datai4.png',
-        alt: 'Datai chatbot',
-      }
     ],
   },
   {
-    title: '3d Pong Game',
+    title: 'Innovote',
     description:
-      "Transcendance is the final project of my 42 cursus. It's a 3D pong game with multiplayer capabilities, user authentication, and real-time gameplay. We had to do everything from scratch, so it was pretty challenging and we learned a lot.",
-    techStack: ['Django', 'Python', 'JavaScript', 'Websockets', 'PostgreSQL', 'Docker', 'Nginx', 'Web3', 'Solidity'],
+      "A mobile app for student clubs built during TUM's 14-week Corporate Campus Challenge with Dieter Schwarz Stiftung. It's a crowdvoting system that helps student clubs compete and grow. As Product Marketing Manager I ran 13 user interviews, designed a 20-page adaptive iOS app in Figma, and gathered 100+ survey responses to shape the roadmap.",
+    techStack: [
+      'Figma',
+      'UX Research',
+      'Product Strategy',
+      'Personas',
+      'iOS Design',
+    ],
+    date: '2024',
+    links: [],
+    images: [
+      {
+        src: '/project-innovote.png',
+        alt: 'Innovote app design',
+      },
+    ],
+  },
+  {
+    title: 'SubSpace',
+    description:
+      'An Android puzzle game with portal mechanics, where I led UI/UX design. I created the full design system (HUD elements, game icons, user flows) and built 3D assets in Blender — a portal gun, the main character robot, and environmental props.',
+    techStack: ['Figma', 'Blender', 'Game UI', 'Design Systems', '3D Modelling'],
     date: '2023',
-    links: [
-      {
-        name: 'GitHub',
-        url: 'https://github.com/toukoum/Transcendance',
-      },
-    ],
+    links: [],
     images: [
       {
-        src: '/trans1.png',
-        alt: 'Transcendance landing page',
+        src: '/project-subspace.png',
+        alt: 'SubSpace game UI',
       },
-      {
-        src: '/trans2.png',
-        alt: 'Transcendance game',
-      },
-      {
-        src: '/trans3.png',
-        alt: 'Transcendance game',
-      },
-      {
-        src: '/trans4.png',
-        alt: 'Transcendance game',
-      },
-      {
-        src: '/trans5.png',
-        alt: 'Transcendance game',
-      },
-      {
-        src: '/trans6.png',
-        alt: 'Transcendance game',
-      }
-
     ],
   },
   {
-    title: 'Minishell',
+    title: 'GDG DevFest',
     description:
-      "Minishell is a project that aims to create a simple shell. It's a great introduction to process creation and management in C, offering fundamental Unix command-line functionality. This was a very challenging project, but I learned a lot from it.",
-    techStack: ['C', 'Unix', 'Bash'],
+      'As Co-Lead of Google Developer Groups Astana, I organised DevFest 2023 for 500+ participants (55% YoY growth), including TensorFlow workshops for 134 developers. I grew GDG membership 325% in four months through coding workshops and university partnerships, adding 200+ developers.',
+    techStack: [
+      'Community Building',
+      'Event Management',
+      'Public Speaking',
+      'Workshops',
+    ],
     date: '2023',
-    links: [
-      {
-        name: 'GitHub',
-        url: 'https://github.com/toukoum/Michelle-42',
-      },
-    ],
+    links: [],
     images: [
       {
-        src: '/minishell1.png',
-        alt: 'Minishell landing page',
-      }
-    ],
-  },
-  {
-    title: 'YouBot',
-    description:
-      'YouBot is a Python Bot that Scrapes Videos from Pexels, adds a random song from a Songs Folder, then auto-uploads the videos to your YouTube Channel for continuous content generation.',
-    techStack: ['Python', 'YouTube API', 'Pexels API'],
-    date: '2022',
-    links: [
-      {
-        name: "YouTube Video",
-        url: "https://youtu.be/vp1v5mBG7rA "
+        src: '/project-gdg.png',
+        alt: 'GDG DevFest event',
       },
-      {
-        name: 'GitHub',
-        url: 'https://github.com/toukoum/YouBot',
-      }
-    ],
-    images: [
-      {
-        src: '/youbot1.jpg',
-        alt: 'Youbot landing page',
-      },
-      {
-        src: '/youbot2.png',
-        alt: 'Youbot chatbot',
-      },
-    ],
-  },
-  {
-    title: 'Old Portfolio',
-    description:
-      'My previous traditional portfolio built with vanilla HTML, CSS and JS with GSAP animations for a smooth and interactive user experience.',
-    techStack: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
-    date: '2022',
-    links: [
-      {
-        name: 'Website',
-        url: 'https://toukoum.github.io/oldPortfolio/',
-      },
-      {
-        name: 'GitHub',
-        url: 'https://github.com/toukoum/portfolio',
-      },
-    ],
-    images: [
-      {
-        src: '/oldport1.png',
-        alt: 'Old Portfolio landing page',
-      },
-      {
-        src: '/oldport2.png',
-        alt: 'Old Portfolio projects',
-      }
     ],
   },
 ];
@@ -440,57 +230,39 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
 // Main data export with updated content
 export const data = [
   {
-    category: 'Startup Project',
-    title: 'Synto',
-    src: '/syntopreview.png',
-    content: <ProjectContent project={{ title: 'Synto' }} />,
+    category: 'AI Tooling',
+    title: 'Amazon AI Assistant',
+    src: '/project-amazon-ai.png',
+    content: <ProjectContent project={{ title: 'Amazon AI Assistant' }} />,
   },
   {
-    category: 'Fun Tool',
-    title: 'Rrate',
-    src: '/ratepreview.png',
-    content: <ProjectContent project={{ title: 'Rrate' }} />,
+    category: 'AI Project',
+    title: 'AI Portfolio',
+    src: '/project-portfolio.png',
+    content: <ProjectContent project={{ title: 'AI Portfolio' }} />,
   },
   {
-    category: 'Hackathon Winner',
-    title: 'Defai',
-    src: '/defaipreview.png',
-    content: <ProjectContent project={{ title: 'Defai' }} />,
+    category: 'Machine Learning',
+    title: 'CardioGuard',
+    src: '/project-cardioguard.png',
+    content: <ProjectContent project={{ title: 'CardioGuard' }} />,
   },
   {
-    category: 'Hackathon Winner',
-    title: 'Fitgear',
-    src: '/fitgearpreview.png',
-    content: <ProjectContent project={{ title: 'Fitgear' }} />,
+    category: 'Product Design',
+    title: 'Innovote',
+    src: '/project-innovote.png',
+    content: <ProjectContent project={{ title: 'Innovote' }} />,
   },
   {
-    category: 'Business Intelligence',
-    title: 'Datai',
-    src: '/dataipreview.png',
-    content: <ProjectContent project={{ title: 'Datai' }} />,
+    category: 'Game Design',
+    title: 'SubSpace',
+    src: '/project-subspace.png',
+    content: <ProjectContent project={{ title: 'SubSpace' }} />,
   },
   {
-    category: '42 Project',
-    title: '3d Pong Game',
-    src: '/transcendancepreview.png',
-    content: <ProjectContent project={{ title: '3d Pong Game' }} />,
-  },
-  {
-    category: '42 Project',
-    title: 'Minishell',
-    src: '/minishellpreview.png',
-    content: <ProjectContent project={{ title: 'Minishell' }} />,
-  },
-  {
-    category: 'Automation',
-    title: 'YouBot',
-    src: '/youbotpreview.png',
-    content: <ProjectContent project={{ title: 'YouBot' }} />,
-  },
-  {
-    category: 'Web Development',
-    title: 'Old Portfolio',
-    src: '/oldportfoliopreview.png',
-    content: <ProjectContent project={{ title: 'Old Portfolio' }} />,
+    category: 'Community',
+    title: 'GDG DevFest',
+    src: '/project-gdg.png',
+    content: <ProjectContent project={{ title: 'GDG DevFest' }} />,
   },
 ];

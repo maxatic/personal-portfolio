@@ -87,32 +87,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
       },
-      { title: "Toukoum Portfolio" },
+      { title: "Max Issaliyev — Portfolio" },
       {
         name: "description",
         content:
-          "Interactive portfolio with an AI-powered Memoji that answers questions about me, my skills, and my experience",
+          "Interactive AI portfolio of Maxat (Max) Issaliyev — Product & Program Manager. Ask the AI anything about my background, projects, skills, and experience.",
       },
-      { name: "author", content: "Toukoum" },
-      { property: "og:title", content: "Toukoum Portfolio" },
+      { name: "author", content: "Maxat Issaliyev" },
+      { property: "og:title", content: "Max Issaliyev — Portfolio" },
       {
         property: "og:description",
         content:
-          "Interactive portfolio with an AI-powered Memoji that answers questions about me",
+          "Interactive AI portfolio that answers questions about Max — his background, projects, and skills.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://toukoum.fr" },
+      { property: "og:url", content: "https://maxissaliyev.com" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Toukoum Portfolio" },
+      { name: "twitter:title", content: "Max Issaliyev — Portfolio" },
       {
         name: "twitter:description",
         content:
-          "Interactive portfolio with an AI-powered Memoji that answers questions about me",
+          "Interactive AI portfolio that answers questions about Max — his background, projects, and skills.",
       },
-      { name: "twitter:creator", content: "@toukoum" },
-      { name: "description", content: "Quick Start HTML creates a new project with a single HTML file for testing." },
-      { property: "og:description", content: "Quick Start HTML creates a new project with a single HTML file for testing." },
-      { name: "twitter:description", content: "Quick Start HTML creates a new project with a single HTML file for testing." },
+      { name: "twitter:creator", content: "@maxissaliyev" },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png" },
     ],
@@ -131,15 +128,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
       },
     ],
-    scripts: [
-      {
-        src: "https://datafa.st/js/script.js",
-        defer: true,
-        "data-website-id": "68e067ba369b1b7f1f096056",
-        "data-domain": "toukoum.fr",
-        "data-allow-localhost": "true",
-      },
-    ],
+    // Analytics removed — the template shipped with the original author's
+    // datafa.st tracking. Add your own analytics website-id/domain here if you want it.
+    scripts: [],
   }),
   shellComponent: RootShell,
   component: RootComponent,

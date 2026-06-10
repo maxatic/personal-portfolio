@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 const InternshipCard = () => {
   const openMail = () => {
-    window.open('mailto:raphaelgiraud12@gmail.com', '_blank');
+    window.open('mailto:issaliyev.maxat@gmail.com', '_blank');
   };
   const router = useRouter();
 
@@ -23,17 +23,17 @@ const InternshipCard = () => {
           {/* Avatar placeholder */}
           <div className="bg-muted h-16 w-16 overflow-hidden rounded-full shadow-md">
             <img
-              src="/avatar-raphael.jpg"
-              alt="Raphael's avatar"
+              src="/avatar-max.jpg"
+              alt="Max's avatar"
               className="h-full w-full object-cover"
             />
           </div>
           <div>
             <h2 className="text-foreground text-2xl font-semibold">
-              Raphael Giraud
+              Maxat (Max) Issaliyev
             </h2>
             <p className="text-muted-foreground text-sm">
-              Intership Application
+              Open to Full-time Roles
             </p>
           </div>
         </div>
@@ -55,9 +55,9 @@ const InternshipCard = () => {
         <div className="flex items-start gap-3">
           <CalendarDays className="mt-1 h-5 w-5 text-blue-500" />
           <div>
-            <p className="text-foreground text-sm font-medium">Duration</p>
+            <p className="text-foreground text-sm font-medium">Availability</p>
             <p className="text-muted-foreground text-sm">
-              6 months – starting September 2025 (fall 2025)
+              Full-time from October 2026 (post-graduation)
             </p>
           </div>
         </div>
@@ -66,28 +66,29 @@ const InternshipCard = () => {
           <div>
             <p className="text-foreground text-sm font-medium">Location</p>
             <p className="text-muted-foreground text-sm">
-              Preferably San Francisco 🇺🇸
+              Munich / Germany 🇩🇪 or remote
             </p>
           </div>
         </div>
 
-        {/* Tech stack */}
+        {/* Focus areas */}
         <div className="flex items-start gap-3 sm:col-span-2">
           <Code2 className="mt-1 h-5 w-5 text-purple-500" />
           <div className="w-full">
-            <p className="text-foreground text-sm font-medium">Tech stack</p>
+            <p className="text-foreground text-sm font-medium">
+              What I do best
+            </p>
             <div className="text-muted-foreground grid grid-cols-1 gap-y-1 text-sm sm:grid-cols-2">
               <ul className="decoration-none list-disc pl-4">
-                <li>Python, Next.js, TypeScript, Tailwind CSS</li>
-                <li>Vercel AI SDK, Supabase, Prisma</li>
-                <li>OpenAI, Mistral, Claude, Whisper</li>
-                <li>Prompt engineering, fine-tuning</li>
+                <li>Product & Program Management</li>
+                <li>Data analytics & KPI systems</li>
+                <li>RAG / LLM internal tooling</li>
+                <li>Roadmaps, PRDs, MVP definition</li>
               </ul>
               <ul className="list-disc pl-4">
-                <li>Weaviate, Pinecone, vector DBs</li>
-                <li>Hugging Face Transformers</li>
-                <li>Tool routing, calling, RAG</li>
-                <li>Hackathons + AI agent workflows</li>
+                <li>User research & UX (Figma)</li>
+                <li>SQL, Python, R</li>
+                <li>Process automation</li>
                 <li>
                   <a
                     href="/chat?query=What%20are%20your%20skills%3F%20Give%20me%20a%20list%20of%20your%20soft%20and%20hard%20skills."
@@ -108,10 +109,11 @@ const InternshipCard = () => {
           What I bring
         </p>
         <p className="text-foreground text-sm">
-          Real-world AI dev experience from Lighton (MCP, secure GPTs, RAG
-          pipelines). <br /> 3x hackathon wins (ETH Oxford, Paris Blockchain
-          Week, Colosseum Breakout on Solana). <br /> I ship fast, and love
-          building useful things that actually work.
+          Real product & program impact at Amazon — a RAG AI assistant that cut
+          metric retrieval time by 80%, and $250K in Q4 logistics cost savings.
+          <br /> ~3 years across Amazon, TUM, and early-stage startups. <br /> I
+          ship fast, automate everything I can, and turn messy data into clear
+          decisions.
         </p>
       </div>
 
@@ -119,9 +121,9 @@ const InternshipCard = () => {
       <div className="mt-8">
         <p className="text-foreground mb-2 text-lg font-semibold">Goal</p>
         <p className="text-foreground text-sm">
-          Join a bold, innovative team building AI-powered tools that matter. I
-          want to improve fast, contribute hard, and leave a mark. I’m fast,
-          flexible, and HUNGRYYYYY 🔥
+          Join an ambitious team building AI-first products that matter. I want
+          to grow fast, ship real impact, and eventually found my own startup.
+          Structured, analytical, and always automating. 🚀
         </p>
       </div>
 

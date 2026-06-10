@@ -7,33 +7,24 @@ import { ChevronRight } from 'lucide-react';
 export function Contact() {
   // Contact information
   const contactInfo = {
-    name: 'Raphael Giraud',
-    email: 'raphaelgiraud12@gmail.com',
-    handle: '@Raphael.Giraud',
+    name: 'Maxat (Max) Issaliyev',
+    email: 'issaliyev.maxat@gmail.com',
+    handle: '@maxissaliyev',
     socials: [
       {
+        // TODO: replace with your real LinkedIn URL
         name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/raphael-giraud-60939519a/',
+        url: 'https://www.linkedin.com/in/maxat-issaliyev/',
       },
       {
-        name: 'Youtube',
-        url: 'https://www.youtube.com/@toukoum',
-      },
-      {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/raphael.giraud/',
-      },
-      {
-        name: 'Discord',
-        url: 'https://discord.com/users/toukoum',
-      },
-      {
+        // TODO: replace with your real GitHub URL
         name: 'Github',
-        url: 'https://github.com/toukoum',
+        url: 'https://github.com/maxissaliyev',
       },
       {
+        // TODO: replace with your real X/Twitter URL
         name: 'X',
-        url: 'https://x.com/toukoumcode',
+        url: 'https://x.com/maxissaliyev',
       },
     ],
   };

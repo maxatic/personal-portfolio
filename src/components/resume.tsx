@@ -8,13 +8,13 @@ import Image from 'next/image';
 export function Resume() {
   // Resume details
   const resumeDetails = {
-    title: "Raphael's Resume",
-    description: 'Full Stack Developer • AI Specialist',
+    title: "Max's Resume",
+    description: 'Product & Program Manager • AI Tooling & Data Analytics',
     fileType: 'PDF',
-    lastUpdated: 'March 2025',
+    lastUpdated: 'June 2026',
     fileSize: '0.5 MB',
-    previewImageSrc: '/resume_giraud_preview.png',
-    downloadUrl: '/resume_giraud.pdf',
+    previewImageSrc: '/resume_max_preview.png',
+    downloadUrl: '/resume_max.pdf',
   };
 
   const handleDownload = () => {
