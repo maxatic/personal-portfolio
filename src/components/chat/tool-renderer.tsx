@@ -1,12 +1,14 @@
 // src/components/chat/tool-renderer.tsx
 import { Contact } from '../contact';
 import Crazy from '../crazy';
+import Education from '../education';
 import InternshipCard from '../InternshipCard';
 import { Presentation } from '../presentation';
 import AllProjects from '../projects/AllProjects';
 import Resume from '../resume';
-import Skills from '../skills';
+import SkillGraph from '../skill-graph';
 import Sports from '../sport';
+import WorkExperience from '../work-experience';
 
 interface ToolRendererProps {
   toolInvocations: any[];
@@ -44,6 +46,24 @@ export default function ToolRenderer({
               </div>
             );
 
+          case 'getEducation':
+            return (
+              <div
+                key={toolCallId}
+                className="w-full overflow-hidden rounded-lg"
+              >
+                <Education />
+              </div>
+            );
+
+          // No overflow-hidden here — the hover emojis pop above the cards
+          case 'getExperience':
+            return (
+              <div key={toolCallId} className="w-full rounded-lg">
+                <WorkExperience />
+              </div>
+            );
+
           case 'getResume':
             return (
               <div key={toolCallId} className="w-full rounded-lg">
@@ -61,7 +81,7 @@ export default function ToolRenderer({
           case 'getSkills':
             return (
               <div key={toolCallId} className="w-full rounded-lg">
-                <Skills />
+                <SkillGraph />
               </div>
             );
 

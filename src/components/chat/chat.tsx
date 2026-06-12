@@ -3,7 +3,7 @@ import { useChat } from '@ai-sdk/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import { chatStream } from '@/lib/api/chat.functions';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
 
 // Component imports
@@ -16,8 +16,32 @@ import {
   ChatBubbleMessage,
 } from '@/components/ui/chat/chat-bubble';
 import WelcomeModal from '@/components/welcome-modal';
-import { Info } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { FlaskConical, Info } from 'lucide-react';
 import HelperBoost from './HelperBoost';
+
+/**
+ * Demo mode: when there's no Lovable API key wired up yet, this maps a question
+ * to the tool/card it would have triggered, so the portfolio cards can be
+ * previewed without the AI backend. Keyword order matters — most specific first.
+ */
+function pickDemoTool(query: string): string {
+  const s = query.toLowerCase();
+  if (/intern/.test(s)) return 'getInternship';
+  if (/education|study|studied|studies|university|degree|college|academic|tum|astana|gpa|major|coursework/.test(s))
+    return 'getEducation';
+  if (/experience|work history|worked|career|working now|amazon|veon|beeline|invisid|campus founders|astana hub|gdg/.test(s))
+    return 'getExperience';
+  if (/resume|cv|hire|valuable|team member/.test(s))
+    return 'getResume';
+  if (/contact|reach|email|role.*looking|looking.*role|located|where are you/.test(s))
+    return 'getContact';
+  if (/skill/.test(s)) return 'getSkills';
+  if (/formula|f1|sport|fitness|gym|football/.test(s)) return 'getSports';
+  if (/project|proud|building|work on/.test(s)) return 'getProjects';
+  if (/fun|craziest|crazy|gaming|hobby|hobbies|certain about/.test(s)) return 'getCrazy';
+  return 'getPresentation';
+}
 
 // ClientOnly component for client-side rendering
 //@ts-ignore
@@ -35,71 +59,27 @@ const ClientOnly = ({ children }) => {
   return <>{children}</>;
 };
 
-// Define Avatar component props interface
 interface AvatarProps {
   hasActiveTool: boolean;
-  videoRef: React.RefObject<HTMLVideoElement | null>;
-  isTalking: boolean;
 }
 
-// Avatar component (rendered client-side only, inside <ClientOnly>)
-const Avatar = ({ hasActiveTool, videoRef }: AvatarProps) => {
-      // This function will only execute on the client
-      const isIOS = () => {
-        // Multiple detection methods
-        const userAgent = window.navigator.userAgent;
-        const platform = window.navigator.platform;
-        const maxTouchPoints = window.navigator.maxTouchPoints || 0;
-
-        // UserAgent-based check
-        const isIOSByUA =
-          //@ts-ignore
-          /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-
-        // Platform-based check
-        const isIOSByPlatform = /iPad|iPhone|iPod/.test(platform);
-
-        // iPad Pro check
-        const isIPadOS =
-          //@ts-ignore
-          platform === 'MacIntel' && maxTouchPoints > 1 && !window.MSStream;
-
-        // Safari check
-        const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
-
-        return isIOSByUA || isIOSByPlatform || isIPadOS || isSafari;
-      };
-
-      // Conditional rendering based on detection
-      return (
-        <div
-          className={`flex items-center justify-center rounded-full transition-all duration-300 ${hasActiveTool ? 'h-20 w-20' : 'h-28 w-28'}`}
-        >
-          <div
-            className="relative cursor-pointer"
-            onClick={() => (window.location.href = '/')}
-          >
-            {isIOS() ? (
-              <img
-                src="/landing-memojis.png"
-                alt="iOS avatar"
-                className="h-full w-full scale-[1.8] object-contain"
-              />
-            ) : (
-              <video
-                ref={videoRef}
-                className="h-full w-full scale-[1.8] object-contain"
-                muted
-                playsInline
-                loop
-              >
-                <source src="/final_memojis.webm" type="video/webm" />
-                <source src="/final_memojis_ios.mp4" type="video/mp4" />
-              </video>
-            )}
-          </div>
-        </div>
-      );
+const Avatar = ({ hasActiveTool }: AvatarProps) => {
+  return (
+    <div
+      className={`flex items-center justify-center rounded-full transition-all duration-300 ${hasActiveTool ? 'h-20 w-20' : 'h-28 w-28'}`}
+    >
+      <div
+        className="relative cursor-pointer"
+        onClick={() => (window.location.href = '/')}
+      >
+        <img
+          src="/avatar-landing.png"
+          alt="Max avatar"
+          className="h-full w-full object-contain"
+        />
+      </div>
+    </div>
+  );
 };
 
 const MOTION_CONFIG = {
@@ -113,13 +93,31 @@ const MOTION_CONFIG = {
 };
 
 const Chat = () => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('query');
   const [autoSubmitted, setAutoSubmitted] = useState(false);
   const [loadingSubmit, setLoadingSubmit] = useState(false);
-  const [isTalking, setIsTalking] = useState(false);
   const hasReachedLimit = false;
+
+  // Demo mode — preview the portfolio cards without the AI backend.
+  // Lazy-init from localStorage so the value is correct before the
+  // auto-submit effect runs on mount.
+  const [demoMode, setDemoMode] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    try {
+      return window.localStorage.getItem('portfolio-demo-mode') === '1';
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem('portfolio-demo-mode', demoMode ? '1' : '0');
+    } catch {
+      /* ignore */
+    }
+  }, [demoMode]);
 
   const {
     messages,
@@ -134,9 +132,6 @@ const Chat = () => {
     addToolResult,
     append,
   } = useChat({
-    // Route useChat through the TanStack Start server function instead of a
-    // Next.js API route. The server fn returns the AI SDK data-stream Response
-    // (passed through raw via x-tss-raw), so streaming works as before.
     fetch: (async (_input: RequestInfo | URL, init?: RequestInit) => {
       const body = init?.body
         ? JSON.parse(init.body as string)
@@ -149,27 +144,13 @@ const Chat = () => {
     onResponse: (response) => {
       if (response) {
         setLoadingSubmit(false);
-        setIsTalking(true);
-        if (videoRef.current) {
-          videoRef.current.play().catch((error) => {
-            console.error('Failed to play video:', error);
-          });
-        }
       }
     },
     onFinish: () => {
       setLoadingSubmit(false);
-      setIsTalking(false);
-      if (videoRef.current) {
-        videoRef.current.pause();
-      }
     },
     onError: (error) => {
       setLoadingSubmit(false);
-      setIsTalking(false);
-      if (videoRef.current) {
-        videoRef.current.pause();
-      }
       console.error('Chat error:', error.message, error.cause);
       toast.error(`Error: ${error.message}`);
     },
@@ -221,9 +202,54 @@ const Chat = () => {
       )
   );
 
+  // Injects a fake user + assistant turn so the matching card renders through
+  // the normal pipeline, no API call involved.
+  const submitDemoQuery = (query: string) => {
+    const toolName = pickDemoTool(query);
+    const stamp = Date.now();
+    const userMsg = {
+      id: `demo-user-${stamp}`,
+      role: 'user',
+      content: query,
+      parts: [{ type: 'text', text: query }],
+    };
+    const assistantMsg = {
+      id: `demo-ai-${stamp}`,
+      role: 'assistant',
+      content: '',
+      parts: [
+        {
+          type: 'tool-invocation',
+          toolInvocation: {
+            state: 'result',
+            step: 0,
+            toolCallId: `demo-call-${stamp}`,
+            toolName,
+            args: {},
+            result: { demo: true },
+          },
+        },
+      ],
+    };
+
+    setLoadingSubmit(true);
+    //@ts-ignore — message shape matches what the renderers consume
+    setMessages((prev) => [...prev, userMsg]);
+    // brief delay to mimic the "thinking" bubble
+    setTimeout(() => {
+      //@ts-ignore
+      setMessages((prev) => [...prev, assistantMsg]);
+      setLoadingSubmit(false);
+    }, 550);
+  };
+
   //@ts-ignore
   const submitQuery = (query) => {
     if (!query.trim() || isToolInProgress) return;
+    if (demoMode) {
+      submitDemoQuery(query);
+      return;
+    }
     setLoadingSubmit(true);
     append({
       role: 'user',
@@ -232,32 +258,12 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.loop = true;
-      videoRef.current.muted = true;
-      videoRef.current.playsInline = true;
-      videoRef.current.pause();
-    }
-
-    
     if (initialQuery && !autoSubmitted) {
       setAutoSubmitted(true);
       setInput('');
       submitQuery(initialQuery);
     }
   }, [initialQuery, autoSubmitted]);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isTalking) {
-        videoRef.current.play().catch((error) => {
-          console.error('Failed to play video:', error);
-        });
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  }, [isTalking]);
 
   //@ts-ignore
   const onSubmit = (e) => {
@@ -270,22 +276,40 @@ const Chat = () => {
   const handleStop = () => {
     stop();
     setLoadingSubmit(false);
-    setIsTalking(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
   };
 
-  // Check if this is the initial empty state (no messages)
   const isEmptyState =
     !currentAIMessage && !latestUserMessage && !loadingSubmit;
 
-  // Calculate header height based on hasActiveTool
   const headerHeight = hasActiveTool ? 100 : 180;
 
   return (
     <div className="relative h-screen overflow-hidden">
       <div className="absolute top-6 right-8 z-51 flex flex-col-reverse items-center justify-center gap-1 md:flex-row">
+        <button
+          type="button"
+          onClick={() => {
+            const next = !demoMode;
+            setDemoMode(next);
+            toast[next ? 'success' : 'info'](
+              next
+                ? 'Demo mode on — showing sample cards (no AI needed)'
+                : 'Demo mode off — using the live AI backend'
+            );
+          }}
+          title="Preview the portfolio cards without the AI backend"
+          className={cn(
+            'flex cursor-pointer items-center gap-1.5 rounded-2xl px-3 py-1.5 text-sm font-medium transition-colors',
+            demoMode
+              ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400'
+              : 'hover:bg-accent text-muted-foreground'
+          )}
+        >
+          <FlaskConical className="h-4 w-4" />
+          <span className="hidden sm:inline">
+            {demoMode ? 'Demo on' : 'Demo'}
+          </span>
+        </button>
         <WelcomeModal
           trigger={
             <div className="hover:bg-accent cursor-pointer rounded-2xl px-3 py-1.5">
@@ -299,17 +323,12 @@ const Chat = () => {
       <div
         className="fixed top-0 right-0 left-0 z-50 bg-gradient-to-b from-background via-background/80 to-transparent"
       >
-
         <div
           className={`transition-all duration-300 ease-in-out ${hasActiveTool ? 'pt-6 pb-0' : 'py-6'}`}
         >
           <div className="flex justify-center">
             <ClientOnly>
-              <Avatar
-                hasActiveTool={hasActiveTool}
-                videoRef={videoRef}
-                isTalking={isTalking}
-              />
+              <Avatar hasActiveTool={hasActiveTool} />
             </ClientOnly>
           </div>
 

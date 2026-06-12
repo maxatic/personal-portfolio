@@ -36,6 +36,8 @@ interface HelperBoostProps {
 
 const questions = {
   Me: 'Who are you? I want to know more about you.',
+  Experience: 'Where have you worked? Walk me through your work experience.',
+  Education: "What's your educational background? Where did you study?",
   Projects: 'What are your projects? What are you working on right now?',
   Skills: 'What are your skills? Give me a list of your soft and hard skills.',
   Fun: "What's the craziest thing you've ever done? What are your hobbies?",
@@ -45,6 +47,8 @@ const questions = {
 
 const questionConfig = [
   { key: 'Me', color: '#329696', icon: Laugh },
+  { key: 'Experience', color: '#C26A2D', icon: BriefcaseIcon },
+  { key: 'Education', color: '#2F77B5', icon: GraduationCapIcon },
   { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
   { key: 'Skills', color: '#856ED9', icon: Layers },
   { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
@@ -54,6 +58,7 @@ const questionConfig = [
 // Helper drawer data
 const specialQuestions = [
   'Gaming you said?? Tell me more!',
+  'Walk me through your work experience.',
   'Who are you?',
   'Can I see your resume?',
   'What projects are you most proud of?',
@@ -75,13 +80,23 @@ const questionsByCategory = [
     ],
   },
   {
+    id: 'experience',
+    name: 'Work Experience',
+    icon: BriefcaseBusiness,
+    questions: [
+      'Walk me through your work experience.',
+      'How was your experience at Amazon?',
+      'What did you build at VEON Beeline?',
+      'Tell me about your startup experience.',
+    ],
+  },
+  {
     id: 'professional',
     name: 'Professional',
     icon: BriefcaseIcon,
     questions: [
       'Can I see your resume?',
       'What makes you a valuable team member?',
-      'Where are you working now?',
       'Why should I hire you?',
       "What's your educational background?",
     ],
@@ -218,7 +233,7 @@ export default function HelperBoost({
                     }`}
                     disabled={hasReachedLimit}
                   >
-                    <div className="flex items-center gap-3 text-gray-700">
+                    <div className="flex items-center gap-3 text-gray-700 dark:text-gray-200">
                       <Icon size={18} strokeWidth={2} color={color} />
                       <span className="text-sm font-medium">{key}</span>
                     </div>
@@ -239,7 +254,7 @@ export default function HelperBoost({
                           whileHover={!hasReachedLimit ? { scale: 1 } : {}}
                           whileTap={!hasReachedLimit ? { scale: 0.98 } : {}}
                         >
-                          <div className="flex items-center gap-3 text-gray-700">
+                          <div className="flex items-center gap-3 text-gray-700 dark:text-gray-200">
                             <CircleEllipsis
                               className="h-[20px] w-[18px]"
                               //style={{ color: '#3B82F6' }}

@@ -27,11 +27,11 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
   const defaultTrigger = (
     <Button
       variant="ghost"
-      className="h-auto w-auto cursor-pointer rounded-2xl bg-white/30 p-3 shadow-lg backdrop-blur-lg hover:bg-white/60 focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+      className="h-auto w-auto cursor-pointer rounded-2xl bg-white/30 p-3 shadow-lg backdrop-blur-lg hover:bg-white/60 dark:bg-neutral-200 dark:hover:bg-neutral-100 focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
       onClick={() => setIsOpen(true)}
     >
       <Image
-        src="/logo-toukoum.svg"
+        src="/logo-main.svg"
         width={100}
         height={100}
         alt="Logo"

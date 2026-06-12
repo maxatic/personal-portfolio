@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="800" height="500" fill="#F8FAFC"/>
+  <rect width="800" height="56" fill="#1A1A2E"/>
+  <circle cx="28" cy="28" r="14" fill="#E53E3E"/>
+  <text x="28" y="33" font-size="14" font-weight="700" fill="white" text-anchor="middle">♥</text>
+  <text x="52" y="34" font-size="15" font-weight="600" fill="white">CardioGuard</text>
+  <text x="680" y="34" font-size="13" fill="#A0AEC0">Patient Portal</text>
+  <circle cx="760" cy="28" r="16" fill="#2D3748"/>
+  <text x="760" y="33" font-size="12" font-weight="600" fill="white" text-anchor="middle">AS</text>
+  <text x="32" y="88" font-size="13" font-weight="600" fill="#1A202C">Health Risk Assessment</text>
+  <text x="32" y="106" font-size="12" fill="#718096">Enter your health metrics below to receive your personalized risk score.</text>
+  <rect x="32" y="122" width="358" height="76" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="48" y="144" font-size="11" fill="#718096">Age</text>
+  <text x="48" y="166" font-size="22" font-weight="600" fill="#1A202C">51</text>
+  <text x="100" y="166" font-size="12" fill="#A0AEC0">years</text>
+  <line x1="48" y1="178" x2="374" y2="178" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="48" y="183" width="180" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="48" y="183" width="95" height="4" rx="2" fill="#E53E3E"/>
+  <rect x="410" y="122" width="358" height="76" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="426" y="144" font-size="11" fill="#718096">Resting Blood Pressure</text>
+  <text x="426" y="166" font-size="22" font-weight="600" fill="#1A202C">130</text>
+  <text x="478" y="166" font-size="12" fill="#A0AEC0">mmHg</text>
+  <line x1="426" y1="178" x2="752" y2="178" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="426" y="183" width="180" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="426" y="183" width="108" height="4" rx="2" fill="#E53E3E"/>
+  <rect x="32" y="212" width="358" height="76" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="48" y="234" font-size="11" fill="#718096">Serum Cholesterol</text>
+  <text x="48" y="256" font-size="22" font-weight="600" fill="#1A202C">240</text>
+  <text x="100" y="256" font-size="12" fill="#A0AEC0">mg/dL</text>
+  <line x1="48" y1="268" x2="374" y2="268" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="48" y="273" width="180" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="48" y="273" width="130" height="4" rx="2" fill="#F6AD55"/>
+  <rect x="410" y="212" width="358" height="76" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="426" y="234" font-size="11" fill="#718096">Max Heart Rate</text>
+  <text x="426" y="256" font-size="22" font-weight="600" fill="#1A202C">150</text>
+  <text x="478" y="256" font-size="12" fill="#A0AEC0">bpm</text>
+  <line x1="426" y1="268" x2="752" y2="268" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="426" y="273" width="180" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="426" y="273" width="90" height="4" rx="2" fill="#48BB78"/>
+  <rect x="32" y="302" width="168" height="54" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="48" y="322" font-size="11" fill="#718096">Fasting Blood Sugar</text>
+  <rect x="48" y="332" width="68" height="18" rx="9" fill="#FFF5F5"/>
+  <text x="82" y="344" font-size="11" font-weight="600" fill="#E53E3E" text-anchor="middle">Elevated</text>
+  <rect x="214" y="302" width="176" height="54" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="230" y="322" font-size="11" fill="#718096">Chest Pain Type</text>
+  <rect x="230" y="332" width="82" height="18" rx="9" fill="#EBF8FF"/>
+  <text x="271" y="344" font-size="11" font-weight="600" fill="#2B6CB0" text-anchor="middle">Atypical</text>
+  <rect x="410" y="302" width="168" height="54" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="426" y="322" font-size="11" fill="#718096">Exercise Angina</text>
+  <rect x="426" y="332" width="42" height="18" rx="9" fill="#F0FFF4"/>
+  <text x="447" y="344" font-size="11" font-weight="600" fill="#276749" text-anchor="middle">No</text>
+  <rect x="592" y="302" width="176" height="54" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="608" y="322" font-size="11" fill="#718096">ST Depression</text>
+  <text x="608" y="346" font-size="18" font-weight="600" fill="#1A202C">2.3</text>
+  <rect x="32" y="374" width="736" height="48" rx="10" fill="#E53E3E"/>
+  <text x="400" y="403" font-size="15" font-weight="600" fill="white" text-anchor="middle">Analyze My Heart Risk →</text>
+  <text x="400" y="468" font-size="11" fill="#A0AEC0" text-anchor="middle">Results are powered by AI and are not a substitute for professional medical advice.</text>
+</svg>

@@ -5,6 +5,8 @@ import { createLovableAiGatewayProvider } from "../ai-gateway.server";
 import { SYSTEM_PROMPT } from "../chat/prompt";
 import { getContact } from "../chat/tools/getContact";
 import { getCrazy } from "../chat/tools/getCrazy";
+import { getEducation } from "../chat/tools/getEducation";
+import { getExperience } from "../chat/tools/getExperience";
 import { getInternship } from "../chat/tools/getIntership";
 import { getPresentation } from "../chat/tools/getPresentation";
 import { getProjects } from "../chat/tools/getProjects";
@@ -38,6 +40,8 @@ export const chatStream = createServerFn({ method: "POST" })
         getSports,
         getCrazy,
         getInternship,
+        getEducation,
+        getExperience,
       };
 
       const apiKey = process.env.LOVABLE_API_KEY;

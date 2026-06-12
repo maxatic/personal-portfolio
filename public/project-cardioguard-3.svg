@@ -1,0 +1,81 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="800" height="500" fill="#F8FAFC"/>
+  <rect width="180" height="500" fill="#1A1A2E"/>
+  <circle cx="30" cy="36" r="14" fill="#E53E3E"/>
+  <text x="30" y="41" font-size="14" font-weight="700" fill="white" text-anchor="middle">♥</text>
+  <text x="54" y="42" font-size="13" font-weight="600" fill="white">CardioGuard</text>
+  <rect x="12" y="72" width="156" height="34" rx="6" fill="#2D3748"/>
+  <text x="36" y="93" font-size="12" font-weight="600" fill="white">⊞  Dashboard</text>
+  <text x="36" y="132" font-size="12" fill="#718096">👥  Patients</text>
+  <text x="36" y="162" font-size="12" fill="#718096">📋  Assessments</text>
+  <text x="36" y="192" font-size="12" fill="#718096">📊  Analytics</text>
+  <line x1="12" y1="210" x2="168" y2="210" stroke="#2D3748" stroke-width="1"/>
+  <circle cx="30" cy="460" r="18" fill="#2D3748"/>
+  <text x="30" y="465" font-size="11" font-weight="600" fill="white" text-anchor="middle">DR</text>
+  <text x="56" y="456" font-size="11" font-weight="600" fill="white">Dr. Reynolds</text>
+  <text x="56" y="470" font-size="10" fill="#718096">Cardiologist</text>
+  <text x="204" y="86" font-size="16" font-weight="600" fill="#1A202C">Patient Overview</text>
+  <text x="204" y="104" font-size="12" fill="#718096">3 active patients monitored</text>
+  <rect x="204" y="118" width="148" height="68" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="220" y="140" font-size="11" fill="#718096">Total Patients</text>
+  <text x="220" y="166" font-size="28" font-weight="700" fill="#1A202C">3</text>
+  <rect x="364" y="118" width="148" height="68" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="380" y="140" font-size="11" fill="#718096">High Risk</text>
+  <text x="380" y="166" font-size="28" font-weight="700" fill="#E53E3E">1</text>
+  <rect x="524" y="118" width="148" height="68" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="540" y="140" font-size="11" fill="#718096">Avg Risk Score</text>
+  <text x="540" y="166" font-size="28" font-weight="700" fill="#F6AD55">54%</text>
+  <rect x="204" y="202" width="376" height="280" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="220" y="226" font-size="13" font-weight="600" fill="#1A202C">Patients</text>
+  <text x="220" y="248" font-size="10" fill="#A0AEC0">NAME</text>
+  <text x="380" y="248" font-size="10" fill="#A0AEC0">LAST ASSESSMENT</text>
+  <text x="510" y="248" font-size="10" fill="#A0AEC0">RISK</text>
+  <line x1="220" y1="255" x2="564" y2="255" stroke="#E2E8F0" stroke-width="1"/>
+  <circle cx="234" cy="282" r="14" fill="#FFF5F5"/>
+  <text x="234" y="287" font-size="10" font-weight="600" fill="#E53E3E" text-anchor="middle">JD</text>
+  <text x="258" y="279" font-size="12" font-weight="600" fill="#1A202C">John Doe</text>
+  <text x="258" y="295" font-size="11" fill="#A0AEC0">M, 51 years</text>
+  <text x="380" y="287" font-size="11" fill="#718096">2 hours ago</text>
+  <rect x="497" y="272" width="60" height="20" rx="10" fill="#FFF5F5"/>
+  <text x="527" y="285" font-size="11" font-weight="600" fill="#E53E3E" text-anchor="middle">73% High</text>
+  <line x1="220" y1="308" x2="564" y2="308" stroke="#F7FAFC" stroke-width="1"/>
+  <circle cx="234" cy="334" r="14" fill="#F0FFF4"/>
+  <text x="234" y="339" font-size="10" font-weight="600" fill="#276749" text-anchor="middle">SM</text>
+  <text x="258" y="331" font-size="12" font-weight="600" fill="#1A202C">Sarah Mills</text>
+  <text x="258" y="347" font-size="11" fill="#A0AEC0">F, 38 years</text>
+  <text x="380" y="339" font-size="11" fill="#718096">Yesterday</text>
+  <rect x="497" y="324" width="60" height="20" rx="10" fill="#F0FFF4"/>
+  <text x="527" y="337" font-size="11" font-weight="600" fill="#276749" text-anchor="middle">34% Low</text>
+  <line x1="220" y1="360" x2="564" y2="360" stroke="#F7FAFC" stroke-width="1"/>
+  <circle cx="234" cy="386" r="14" fill="#FFFAF0"/>
+  <text x="234" y="391" font-size="10" font-weight="600" fill="#B7791F" text-anchor="middle">AT</text>
+  <text x="258" y="383" font-size="12" font-weight="600" fill="#1A202C">Alan Torres</text>
+  <text x="258" y="399" font-size="11" fill="#A0AEC0">M, 44 years</text>
+  <text x="380" y="391" font-size="11" fill="#718096">3 days ago</text>
+  <rect x="490" y="376" width="74" height="20" rx="10" fill="#FFFAF0"/>
+  <text x="527" y="389" font-size="11" font-weight="600" fill="#B7791F" text-anchor="middle">56% Medium</text>
+  <rect x="220" y="450" width="144" height="24" rx="6" fill="#1A1A2E"/>
+  <text x="292" y="466" font-size="11" font-weight="600" fill="white" text-anchor="middle">+ Add Patient</text>
+  <rect x="592" y="202" width="196" height="280" rx="10" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="608" y="226" font-size="12" font-weight="600" fill="#1A202C">John Doe — Trend</text>
+  <text x="608" y="252" font-size="10" fill="#A0AEC0">Risk score over time</text>
+  <line x1="608" y1="330" x2="772" y2="330" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="608" y1="310" x2="772" y2="310" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="608" y1="290" x2="772" y2="290" stroke="#E2E8F0" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <polyline points="618,322 645,318 672,315 699,310 726,306 753,300 772,298" fill="none" stroke="#E53E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="772" cy="298" r="4" fill="#E53E3E"/>
+  <text x="608" y="345" font-size="9" fill="#A0AEC0">Jan</text>
+  <text x="699" y="345" font-size="9" fill="#A0AEC0">Apr</text>
+  <text x="762" y="345" font-size="9" fill="#A0AEC0">Jun</text>
+  <line x1="608" y1="356" x2="772" y2="356" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="608" y="376" font-size="11" fill="#718096">Blood Pressure</text>
+  <text x="772" y="376" font-size="11" font-weight="600" fill="#1A202C" text-anchor="end">130 mmHg</text>
+  <text x="608" y="398" font-size="11" fill="#718096">Cholesterol</text>
+  <text x="772" y="398" font-size="11" font-weight="600" fill="#1A202C" text-anchor="end">240 mg/dL</text>
+  <text x="608" y="420" font-size="11" fill="#718096">Heart Rate</text>
+  <text x="772" y="420" font-size="11" font-weight="600" fill="#1A202C" text-anchor="end">150 bpm</text>
+  <text x="608" y="442" font-size="11" fill="#718096">Last Score</text>
+  <text x="772" y="442" font-size="11" font-weight="600" fill="#E53E3E" text-anchor="end">73%</text>
+  <rect x="608" y="454" width="164" height="20" rx="5" fill="#1A1A2E"/>
+  <text x="690" y="468" font-size="10" font-weight="600" fill="white" text-anchor="middle">View Full Report →</text>
+</svg>

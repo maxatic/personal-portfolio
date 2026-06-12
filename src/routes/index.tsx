@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import FloatingElements from "@/components/floating-elements";
 import FluidCursor from "@/components/FluidCursor";
+import ZigzagSelection from "@/components/zigzag-selection";
 import { Button } from "@/components/ui/button";
 import WelcomeModal from "@/components/welcome-modal";
 import { motion } from "framer-motion";
@@ -84,13 +86,16 @@ function Home() {
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-10 md:pb-20">
+      {/* decorative stickers that slide in from the sides */}
+      <FloatingElements />
+
       {/* big blurred footer word */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden">
         <div
-          className="hidden bg-gradient-to-b from-neutral-500/20 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem] dark:from-white/30 dark:to-white/0"
+          className="hidden bg-gradient-to-b from-neutral-700/45 to-neutral-700/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem] dark:from-white/30 dark:to-white/0"
           style={{ marginBottom: "-2.5rem" }}
         >
-          Issaliyev
+          maxatic
         </div>
       </div>
 
@@ -98,6 +103,7 @@ function Home() {
 
       {/* header */}
       <motion.div
+        data-zigzag-selection
         className="z-1 mt-24 mb-8 flex flex-col items-center text-center md:mt-4 md:mb-12"
         variants={topElementVariants}
         initial="hidden"
@@ -107,7 +113,7 @@ function Home() {
           <WelcomeModal />
         </div>
 
-        <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
+        <h2 className="text-secondary-foreground mt-1 pr-2 text-xl font-semibold md:text-2xl">
           Hey, I'm Max 👋
         </h2>
         <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
@@ -180,6 +186,7 @@ function Home() {
         </div>
       </motion.div>
       <FluidCursor />
+      <ZigzagSelection />
     </div>
   );
 }
