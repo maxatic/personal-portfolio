@@ -77,6 +77,15 @@ const specialQuestions = [
   "What's the craziest thing you've ever done?",
 ];
 
+// AI-powered questions that should be visually distinct from instant cards.
+const aiQuestions = [
+  "What makes you a great Product Manager?",
+  "What's your product philosophy?",
+  "How do you prioritize features?",
+  "Describe a product you built from 0 to 1.",
+  "What's the most interesting trend in AI products right now?",
+];
+
 const questionsByCategory = [
   {
     id: "ai",
