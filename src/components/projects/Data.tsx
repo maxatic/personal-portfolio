@@ -7,7 +7,15 @@ import { url } from 'inspector';
 // Enhanced project content array with all projects
 // NOTE: image paths below are placeholders — drop your own screenshots into /public
 // using these filenames (e.g. project-syz-1.png), or update the paths to match your assets.
-const PROJECT_CONTENT = [
+type ProjectLink = { name: string; url: string };
+const PROJECT_CONTENT: Array<{
+  title: string;
+  description: string;
+  techStack: string[];
+  date: string;
+  links: ProjectLink[];
+  images: { src: string; alt: string }[];
+}> = [
   {
     title: 'GDG DevFest',
     description:
