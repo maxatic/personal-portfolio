@@ -79,6 +79,13 @@ const specialQuestions = [
 
 const questionsByCategory = [
   {
+    id: "ai",
+    name: "Ask AI",
+    icon: Sparkles,
+    ai: true,
+    questions: aiQuestions,
+  },
+  {
     id: "me",
     name: "Me",
     icon: UserSearch,
@@ -303,6 +310,7 @@ export default function HelperBoost({
                         Icon={category.icon}
                         questions={category.questions}
                         onQuestionClick={handleDrawerQuestionClick}
+                        isAI={category.ai}
                       />
                     ))}
                   </div>
