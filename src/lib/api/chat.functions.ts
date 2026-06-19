@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { streamText, type Message } from "ai";
+import { z } from "zod";
 import { createLovableAiGatewayProvider } from "../ai-gateway.server";
 
 import { SYSTEM_PROMPT } from "../chat/prompt";
@@ -21,26 +22,36 @@ import { getSports } from "../chat/tools/getSport";
 //
 // LOVABLE SETUP: add the `LOVABLE_API_KEY` secret in your Lovable project
 // (Settings -> Secrets). It is read per-request below and used to call the
-// Lovable AI Gateway. Without it, typed questions return a 500; the buttons
-// still work. The model and the assistant's behaviour/guardrails come from
-// `SYSTEM_PROMPT` (src/lib/chat/prompt.ts) — edit that to change the persona.
-//
-// Ported from the Next.js POST /api/chat route. Returns the AI SDK data-stream
-// Response directly; TanStack Start passes raw Response results through to the
-// client (x-tss-raw), so `useChat`'s custom fetch streams it as usual.
-function errorHandler(error: unknown) {
-  if (error == null) return "Unknown error";
-  if (typeof error === "string") return error;
-  if (error instanceof Error) return error.message;
-  return JSON.stringify(error);
+// Lovable AI Gateway.
+const MessageSchema = z
+  .object({
+    role: z.enum(["user", "assistant"]),
+    content: z.string().min(1).max(4000),
+    id: z.string().optional(),
+    createdAt: z.union([z.string(), z.date()]).optional(),
+  })
+  .passthrough();
+
+const ChatInputSchema = z.object({
+  messages: z.array(MessageSchema).min(1).max(50),
+});
+
+function safeErrorMessage(error: unknown): string {
+  console.error("Chat stream error:", error);
+  return "An error occurred while generating a response. Please try again.";
 }
 
 export const chatStream = createServerFn({ method: "POST" })
-  .validator((data: { messages: Message[] }) => data)
+  .validator((data: unknown) => ChatInputSchema.parse(data))
   .handler(async ({ data }) => {
     try {
-      const messages = [...data.messages];
-      messages.unshift(SYSTEM_PROMPT as unknown as Message);
+      // Strip any non-user/assistant messages (e.g. role: 'system') to prevent
+      // clients from overriding the server-side SYSTEM_PROMPT.
+      const sanitized = data.messages
+        .filter((m) => m.role === "user" || m.role === "assistant")
+        .map((m) => ({ role: m.role, content: m.content })) as Message[];
+
+      const messages: Message[] = [SYSTEM_PROMPT as unknown as Message, ...sanitized];
 
       const tools = {
         getProjects,
@@ -58,7 +69,8 @@ export const chatStream = createServerFn({ method: "POST" })
 
       const apiKey = process.env.LOVABLE_API_KEY;
       if (!apiKey) {
-        return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+        console.error("Missing LOVABLE_API_KEY");
+        return new Response("Service unavailable. Please try again later.", { status: 503 });
       }
       const gateway = createLovableAiGatewayProvider(apiKey);
 
@@ -70,9 +82,9 @@ export const chatStream = createServerFn({ method: "POST" })
         maxSteps: 2,
       });
 
-      return result.toDataStreamResponse({ getErrorMessage: errorHandler });
+      return result.toDataStreamResponse({ getErrorMessage: safeErrorMessage });
     } catch (err) {
-      console.error("Global error:", err);
-      return new Response(errorHandler(err), { status: 500 });
+      console.error("Global chat error:", err);
+      return new Response("An error occurred. Please try again.", { status: 500 });
     }
   });
