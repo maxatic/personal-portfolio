@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Download, ExternalLink, Eye, FileText, Loader2 } from "lucide-react";
 import { Suspense, lazy, useEffect, useLayoutEffect, useRef, useState } from "react";
 
+import germanCvAsset from "@/assets/resumes/maxat-cv-german.pdf.asset.json";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const PdfThumbnail = lazy(() =>
