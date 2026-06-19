@@ -14,6 +14,23 @@ import { Suspense, lazy, useEffect, useLayoutEffect, useRef, useState } from "re
 
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
+// Certificate PDFs hosted on Lovable Assets CDN (filenames with spaces 404 in production)
+import agenticAiPdf from "@/assets/certificates/Agentic-AI-Essential-Concepts-for-builders.pdf.asset.json";
+import campusFoundersPdf from "@/assets/certificates/Campus-Founders.pdf.asset.json";
+import ciscoPdf from "@/assets/certificates/Cisco-IT-Essentials.pdf.asset.json";
+import googlePdf from "@/assets/certificates/Google.pdf.asset.json";
+import harvardPdf from "@/assets/certificates/Harvard-CS50X.pdf.asset.json";
+import mckinseyPdf from "@/assets/certificates/McKinsey-Forward-Certificate.pdf.asset.json";
+import metaPdf from "@/assets/certificates/Meta.pdf.asset.json";
+import pmePdf from "@/assets/certificates/Product-Management-Essentials.pdf.asset.json";
+import upennPdf from "@/assets/certificates/Upenn.pdf.asset.json";
+
+// Issuer logos hosted on CDN (root-level filenames with spaces 404 in production)
+import googleLogo from "@/assets/logos/Google-Logo.png.asset.json";
+import harvardLogo from "@/assets/logos/Harvard-Logo.png.asset.json";
+import mckinseyLogo from "@/assets/logos/Mckinsey-logo.webp.asset.json";
+import whartonLogo from "@/assets/logos/Wharton-Logo.png.asset.json";
+
 const PdfViewer = lazy(() => import("./pdf-document").then((m) => ({ default: m.PdfViewer })));
 
 interface Certification {
