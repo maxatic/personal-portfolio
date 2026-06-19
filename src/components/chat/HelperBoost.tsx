@@ -347,7 +347,9 @@ function CategorySection({ name, Icon, questions, onQuestionClick, isAI }: Categ
     <div className="space-y-3">
       <div className="flex items-center gap-2.5 px-1">
         <Icon className={cn("h-5 w-5", isAI && "text-brand")} />
-        <Drawer.Title className={cn("text-[22px] font-medium", isAI ? "text-brand" : "text-gray-900")}>
+        <Drawer.Title
+          className={cn("text-[22px] font-medium", isAI ? "text-brand" : "text-gray-900")}
+        >
           {name}
         </Drawer.Title>
       </div>
@@ -404,7 +406,11 @@ function QuestionItem({ question, onClick, isSpecial, isAI }: QuestionItemProps)
         {(isAI || isSpecial) && (
           <Sparkles className={cn("mr-2 h-4 w-4", isAI ? "text-brand-foreground" : "text-white")} />
         )}
-        <span className={cn(isAI ? "font-medium text-brand-foreground" : isSpecial ? "font-medium text-white" : "")}>
+        <span
+          className={cn(
+            isAI ? "font-medium text-brand-foreground" : isSpecial ? "font-medium text-white" : "",
+          )}
+        >
           {question}
         </span>
         {isAI && (
@@ -422,7 +428,10 @@ function QuestionItem({ question, onClick, isSpecial, isAI }: QuestionItemProps)
         }}
       >
         <ChevronRight
-          className={cn("h-5 w-5 shrink-0", isAI ? "text-brand-foreground" : isSpecial ? "text-white" : "text-primary")}
+          className={cn(
+            "h-5 w-5 shrink-0",
+            isAI ? "text-brand-foreground" : isSpecial ? "text-white" : "text-primary",
+          )}
         />
       </motion.div>
     </motion.button>
