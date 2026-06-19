@@ -8,7 +8,7 @@ export const getCertifications = tool({
   execute: async () => {
     return {
       certifications:
-        "I back up my product, project-management and tech skills with recognised certifications: Harvard's CS50x (Introduction to Computer Science), Amazon's Product Management Essentials and Agentic AI: Essential Concepts for Builders, the McKinsey.org Forward Program, Google's Foundations of Project Management, marketing courses from Wharton (UPenn) and Meta, and Cisco IT Essentials. The card lists each one — click any credential to preview the actual certificate.",
+        "Here are the certifications I actually hold: Harvard's CS50x (Introduction to Computer Science), Amazon Machine Learning University's Agentic AI: Essential Concepts for Builders, Amazon's Product Management Essentials, the McKinsey.org Forward Program, Google's Foundations of Project Management (Coursera), Wharton/UPenn's Introduction to Marketing (Coursera), Meta's Introduction to Social Media Marketing (Coursera), Cisco's IT Essentials, and the Campus Founders Corporate Campus Challenge. The card lists each one - click any credential to preview the actual certificate.",
     };
   },
 });
