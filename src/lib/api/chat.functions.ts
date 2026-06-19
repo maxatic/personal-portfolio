@@ -1,4 +1,5 @@
-import { createServerFn, getWebRequest } from "@tanstack/react-start";
+import { createServerFn } from "@tanstack/react-start";
+import { getRequest } from "@tanstack/react-start/server";
 import { streamText, type Message } from "ai";
 import { createHash } from "crypto";
 import { z } from "zod";
