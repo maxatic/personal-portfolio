@@ -220,12 +220,13 @@ const Chat = () => {
     return true;
   };
 
-  // Free-form typed questions always go to the live Lovable AI.
+  // Free-form typed questions always go to the live Lovable AI. We intentionally
+  // do NOT call scrollToExistingAnswer here: even if a previous answer used the
+  // same tool category, a typed follow-up is a new question and must append a
+  // new turn instead of scrolling back to an older card.
   //@ts-ignore
   const submitQuery = (query) => {
     if (!query.trim() || isToolInProgress || loadingSubmit) return;
-    // Reuse an existing answer rather than regenerating the same card.
-    if (scrollToExistingAnswer(query)) return;
     setLoadingSubmit(true);
     append({
       role: "user",
