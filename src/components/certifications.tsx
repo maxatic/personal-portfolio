@@ -55,10 +55,10 @@ const certifications: Certification[] = [
     title: "CS50x: Introduction to Computer Science",
     issuer: "Harvard University",
     monogram: "H",
-    logo: "/Harvard Logo.png",
+    logo: harvardLogo.url,
     logoFit: "cover",
     issued: "Issued 2020",
-    fileName: "Harvard CS50X.pdf",
+    fileName: harvardPdf.url,
     verifyUrl: "https://cs50.harvard.edu/certificates/9f494512-2109-462d-8712-a539e9aa9e49",
   },
   {
@@ -68,7 +68,7 @@ const certifications: Certification[] = [
     logo: "/Logos/amazon.png",
     logoFit: "cover",
     issued: "Issued 2025",
-    fileName: "Agentic AI   Essential Concepts for builders.pdf",
+    fileName: agenticAiPdf.url,
   },
   {
     title: "Product Management Essentials",
@@ -77,35 +77,35 @@ const certifications: Certification[] = [
     logo: "/Logos/amazon.png",
     logoFit: "cover",
     issued: "Issued 2025",
-    fileName: "Product Management Essentials.pdf",
+    fileName: pmePdf.url,
   },
   {
     title: "McKinsey.org Forward Program",
     issuer: "McKinsey.org",
     monogram: "McK",
-    logo: "/Mckinsey logo.webp",
+    logo: mckinseyLogo.url,
     logoFit: "cover",
     issued: "Issued 2025",
-    fileName: "McKinsey Forward Certificate.pdf",
+    fileName: mckinseyPdf.url,
   },
   {
     title: "Foundations of Project Management",
     issuer: "Google · Coursera",
     monogram: "G",
-    logo: "/Google Logo.png",
+    logo: googleLogo.url,
     logoFit: "cover",
     issued: "Issued 2022",
-    fileName: "Google.pdf",
+    fileName: googlePdf.url,
     verifyUrl: "https://coursera.org/verify/3XRK8UWBQZCD",
   },
   {
     title: "Introduction to Marketing",
     issuer: "Wharton · UPenn · Coursera",
     monogram: "W",
-    logo: "/Wharton Logo.png",
+    logo: whartonLogo.url,
     logoFit: "cover",
     issued: "Issued 2023",
-    fileName: "Upenn.pdf",
+    fileName: upennPdf.url,
     verifyUrl: "https://coursera.org/verify/DALA9UPPCVVL",
   },
   {
@@ -114,7 +114,7 @@ const certifications: Certification[] = [
     monogram: "M",
     logo: "/Logos/meta.svg",
     issued: "Issued 2023",
-    fileName: "Meta.pdf",
+    fileName: metaPdf.url,
     verifyUrl: "https://coursera.org/verify/H7RPX34LHWPV",
   },
   {
@@ -123,7 +123,7 @@ const certifications: Certification[] = [
     monogram: "C",
     logo: "/Logos/cisco.svg",
     issued: "Issued 2023",
-    fileName: "Cisco IT Essentials.pdf",
+    fileName: ciscoPdf.url,
   },
   {
     title: "Corporate Campus Challenge",
@@ -132,12 +132,13 @@ const certifications: Certification[] = [
     logo: "/Logos/campusfounders.png",
     logoFit: "cover",
     issued: "Issued 2024",
-    fileName: "Campus Founders.pdf",
+    fileName: campusFoundersPdf.url,
     previewPages: 1, // file bundles several certs; page 1 is the relevant one
   },
 ];
 
-const certUrl = (fileName: string) => `/Certificates/${encodeURIComponent(fileName)}`;
+// fileName now holds the absolute CDN URL directly
+const certUrl = (fileName: string) => fileName;
 
 function CertificationRow({ cert, onVerify }: { cert: Certification; onVerify: () => void }) {
   const [logoFailed, setLogoFailed] = useState(false);
