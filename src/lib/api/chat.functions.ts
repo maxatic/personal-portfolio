@@ -47,7 +47,9 @@ import { getSports } from "../chat/tools/getSport";
 const MessageSchema = z
   .object({
     role: z.enum(["user", "assistant"]),
-    content: z.string().min(1).max(4000),
+    // Assistant messages from predefined-card flows may carry empty content
+    // (the payload lives in `parts`). Only enforce min length on user input.
+    content: z.string().max(4000),
     id: z.string().optional(),
     createdAt: z.union([z.string(), z.date()]).optional(),
   })
