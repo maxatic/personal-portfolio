@@ -2,6 +2,10 @@
 
 import { motion, type Variants } from 'framer-motion';
 import { Briefcase, CalendarDays, MapPin } from 'lucide-react';
+import amazonProgram1 from '@/assets/emojis/amazon-program-1.png.asset.json';
+import amazonProgram2 from '@/assets/emojis/amazon-program-2.png.asset.json';
+import amazonProduct1 from '@/assets/emojis/amazon-product-1.png.asset.json';
+import amazonProduct2 from '@/assets/emojis/amazon-product-2.png.asset.json';
 
 interface ExperienceEntry {
   company: string;
@@ -33,8 +37,8 @@ const experiences: ExperienceEntry[] = [
       'Develop merchant-facing content and onboarding collateral for FMCG partner campaigns',
       'Coordinate concurrent marketing workstreams, all alongside my final year at TUM',
     ],
-    emojiLeft: '/amazon program 1.png',
-    emojiRight: '/amazon program 2.png',
+    emojiLeft: amazonProgram1.url,
+    emojiRight: amazonProgram2.url,
   },
   {
     company: 'Amazon',
@@ -51,8 +55,8 @@ const experiences: ExperienceEntry[] = [
       'Automated weekly KPI tracking, +15% on-time delivery across flagged vendors',
       'Continuous Learning & Development Award within an 80+ person management team',
     ],
-    emojiLeft: '/amazon product 1.png',
-    emojiRight: '/amazon product 2.png',
+    emojiLeft: amazonProduct1.url,
+    emojiRight: amazonProduct2.url,
   },
   {
     company: 'TUM School of Management',
