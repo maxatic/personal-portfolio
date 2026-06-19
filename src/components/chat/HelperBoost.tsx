@@ -330,14 +330,17 @@ interface CategorySectionProps {
   Icon: React.ElementType;
   questions: string[];
   onQuestionClick: (question: string) => void;
+  isAI?: boolean;
 }
 
-function CategorySection({ name, Icon, questions, onQuestionClick }: CategorySectionProps) {
+function CategorySection({ name, Icon, questions, onQuestionClick, isAI }: CategorySectionProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-2.5 px-1">
-        <Icon className="h-5 w-5" />
-        <Drawer.Title className="text-[22px] font-medium text-gray-900">{name}</Drawer.Title>
+        <Icon className={cn("h-5 w-5", isAI && "text-brand")} />
+        <Drawer.Title className={cn("text-[22px] font-medium", isAI ? "text-brand" : "text-gray-900")}>
+          {name}
+        </Drawer.Title>
       </div>
 
       <Separator className="my-4" />
@@ -349,6 +352,7 @@ function CategorySection({ name, Icon, questions, onQuestionClick }: CategorySec
             question={question}
             onClick={() => onQuestionClick(question)}
             isSpecial={specialQuestions.includes(question)}
+            isAI={isAI}
           />
         ))}
       </div>
@@ -361,9 +365,10 @@ interface QuestionItemProps {
   question: string;
   onClick: () => void;
   isSpecial: boolean;
+  isAI?: boolean;
 }
 
-function QuestionItem({ question, onClick, isSpecial }: QuestionItemProps) {
+function QuestionItem({ question, onClick, isSpecial, isAI }: QuestionItemProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -373,22 +378,31 @@ function QuestionItem({ question, onClick, isSpecial }: QuestionItemProps) {
         "text-md px-6 py-4 text-left font-normal",
         "transition-all",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
-        isSpecial ? "bg-black" : "bg-[#F7F8F9]",
+        isAI ? "bg-brand text-brand-foreground" : isSpecial ? "bg-black" : "bg-[#F7F8F9]",
       )}
       onClick={onClick}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       whileHover={{
-        backgroundColor: isSpecial ? undefined : "#F0F0F2",
+        backgroundColor: isAI ? undefined : isSpecial ? undefined : "#F0F0F2",
       }}
       whileTap={{
         scale: 0.98,
-        backgroundColor: isSpecial ? undefined : "#E8E8EA",
+        backgroundColor: isAI ? undefined : isSpecial ? undefined : "#E8E8EA",
       }}
     >
       <div className="flex items-center">
-        {isSpecial && <Sparkles className="mr-2 h-4 w-4 text-white" />}
-        <span className={isSpecial ? "font-medium text-white" : ""}>{question}</span>
+        {(isAI || isSpecial) && (
+          <Sparkles className={cn("mr-2 h-4 w-4", isAI ? "text-brand-foreground" : "text-white")} />
+        )}
+        <span className={cn(isAI ? "font-medium text-brand-foreground" : isSpecial ? "font-medium text-white" : "")}>
+          {question}
+        </span>
+        {isAI && (
+          <span className="ml-2 rounded-full bg-brand-foreground/20 px-2 py-0.5 text-xs font-medium">
+            AI
+          </span>
+        )}
       </div>
       <motion.div
         animate={{ x: isHovered ? 4 : 0 }}
@@ -399,7 +413,7 @@ function QuestionItem({ question, onClick, isSpecial }: QuestionItemProps) {
         }}
       >
         <ChevronRight
-          className={cn("h-5 w-5 shrink-0", isSpecial ? "text-white" : "text-primary")}
+          className={cn("h-5 w-5 shrink-0", isAI ? "text-brand-foreground" : isSpecial ? "text-white" : "text-primary")}
         />
       </motion.div>
     </motion.button>
