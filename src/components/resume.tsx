@@ -23,6 +23,8 @@ type ResumeVersion = {
   available: boolean;
 };
 
+import germanCvAsset from "@/assets/resumes/maxat-cv-german.pdf.asset.json";
+
 const resumeVersions: ResumeVersion[] = [
   {
     id: "german",
@@ -32,7 +34,7 @@ const resumeVersions: ResumeVersion[] = [
     fileName: "Maxat CV German Version.pdf",
     fileSize: "254 KB",
     lastUpdated: "June 2026",
-    url: "/Resumes/Maxat%20CV%20German%20Version.pdf",
+    url: germanCvAsset.url,
     available: true,
   },
   {
@@ -43,7 +45,7 @@ const resumeVersions: ResumeVersion[] = [
     fileName: "Maxat CV US Version.pdf",
     fileSize: "Pending",
     lastUpdated: "Coming soon",
-    url: "/Resumes/Maxat%20CV%20US%20Version.pdf",
+    url: "#",
     available: false,
   },
 ];
