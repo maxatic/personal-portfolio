@@ -47,7 +47,9 @@ import { getSports } from "../chat/tools/getSport";
 const MessageSchema = z
   .object({
     role: z.enum(["user", "assistant"]),
-    content: z.string().min(1).max(4000),
+    // Assistant messages from predefined-card flows may carry empty content
+    // (the payload lives in `parts`). Only enforce min length on user input.
+    content: z.string().max(4000),
     id: z.string().optional(),
     createdAt: z.union([z.string(), z.date()]).optional(),
   })
@@ -108,7 +110,7 @@ export const chatStream = createServerFn({ method: "POST" })
       // Strip any non-user/assistant messages (e.g. role: 'system') to prevent
       // clients from overriding the server-side SYSTEM_PROMPT.
       const sanitized = data.messages
-        .filter((m) => m.role === "user" || m.role === "assistant")
+        .filter((m) => (m.role === "user" || m.role === "assistant") && m.content?.trim().length > 0)
         .map((m) => ({ role: m.role, content: m.content })) as Message[];
 
       const messages: Message[] = [SYSTEM_PROMPT as unknown as Message, ...sanitized];
