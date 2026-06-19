@@ -1,7 +1,28 @@
 import { createServerFn } from "@tanstack/react-start";
+import { getRequest } from "@tanstack/react-start/server";
 import { streamText, type Message } from "ai";
+import { createHash } from "crypto";
 import { z } from "zod";
 import { createLovableAiGatewayProvider } from "../ai-gateway.server";
+
+const AI_QUESTION_LIMIT = 6;
+
+function getClientIp(req: Request): string {
+  const h = req.headers;
+  const candidates = [
+    h.get("cf-connecting-ip"),
+    h.get("x-real-ip"),
+    h.get("x-forwarded-for")?.split(",")[0].trim(),
+  ];
+  return candidates.find((v) => !!v) || "unknown";
+}
+
+function hashIp(ip: string): string {
+  // Salt with a server-side value so the stored hash is not a trivially
+  // reversible IP lookup table.
+  const salt = process.env.LOVABLE_API_KEY || "ai-usage-salt";
+  return createHash("sha256").update(`${salt}:${ip}`).digest("hex");
+}
 
 import { SYSTEM_PROMPT } from "../chat/prompt";
 import { getCertifications } from "../chat/tools/getCertifications";
@@ -45,6 +66,45 @@ export const chatStream = createServerFn({ method: "POST" })
   .validator((data: unknown) => ChatInputSchema.parse(data))
   .handler(async ({ data }) => {
     try {
+      // Per-visitor AI question limit (by hashed IP). Enforced server-side
+      // so it cannot be bypassed from the browser.
+      const req = getRequest();
+      const ip = getClientIp(req);
+      const ipHash = hashIp(ip);
+
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+      const { data: existing, error: readErr } = await supabaseAdmin
+        .from("ai_usage")
+        .select("count")
+        .eq("ip_hash", ipHash)
+        .maybeSingle();
+
+      if (readErr) {
+        console.error("ai_usage read error:", readErr);
+        return new Response("Service unavailable. Please try again later.", { status: 503 });
+      }
+
+      const currentCount = existing?.count ?? 0;
+      if (currentCount >= AI_QUESTION_LIMIT) {
+        return new Response(
+          `You've reached the limit of ${AI_QUESTION_LIMIT} AI questions. Please come back later.`,
+          { status: 429 },
+        );
+      }
+
+      const { error: upsertErr } = await supabaseAdmin
+        .from("ai_usage")
+        .upsert(
+          { ip_hash: ipHash, count: currentCount + 1, updated_at: new Date().toISOString() },
+          { onConflict: "ip_hash" },
+        );
+
+      if (upsertErr) {
+        console.error("ai_usage upsert error:", upsertErr);
+        return new Response("Service unavailable. Please try again later.", { status: 503 });
+      }
+
       // Strip any non-user/assistant messages (e.g. role: 'system') to prevent
       // clients from overriding the server-side SYSTEM_PROMPT.
       const sanitized = data.messages
