@@ -110,7 +110,7 @@ export const chatStream = createServerFn({ method: "POST" })
       // Strip any non-user/assistant messages (e.g. role: 'system') to prevent
       // clients from overriding the server-side SYSTEM_PROMPT.
       const sanitized = data.messages
-        .filter((m) => m.role === "user" || m.role === "assistant")
+        .filter((m) => (m.role === "user" || m.role === "assistant") && m.content?.trim().length > 0)
         .map((m) => ({ role: m.role, content: m.content })) as Message[];
 
       const messages: Message[] = [SYSTEM_PROMPT as unknown as Message, ...sanitized];
