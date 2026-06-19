@@ -11,7 +11,7 @@ const PROJECT_CONTENT = [
   {
     title: 'GDG DevFest',
     description:
-      "Co-leading Google Developer Groups in Astana is where I discovered how much I love building communities around technology. I took on DevFest, our flagship developer conference, and grew it into one of the city's biggest tech gatherings — but what I'm proudest of isn't the headcount. It's the people: students who showed up curious and left running their own workshops, volunteers I got to mentor, and a club that became a genuine home for developers in Astana. I learned to lead by creating momentum — partnering with universities, supporting the team, and giving people the space and reason to grow.",
+      "Co-leading Google Developer Groups in Astana is where I found out how much I love building communities around tech. I took on DevFest, our flagship developer conference, and grew it into one of the biggest tech gatherings in the city. The headcount isn't the part I'm proudest of, though. It's the people. Students showed up curious and left running their own workshops, I got to mentor a bunch of volunteers, and the club turned into a real home for developers in Astana. I learned to lead by building momentum. That meant partnering with universities, backing the team, and giving people a reason to grow.",
     techStack: [
       'Community Building',
       'Event Management',
@@ -21,42 +21,53 @@ const PROJECT_CONTENT = [
     date: '2023',
     links: [],
     images: [
-      { src: '/GDG 2.jpg', alt: 'GDG DevFest in Astana' },
-      { src: '/GDG 3.jpg', alt: 'GDG community at DevFest' },
+      { src: '/Projects/GDG/GDG 1.png', alt: 'GDG DevFest in Astana' },
+      { src: '/Projects/GDG/GDG 2.jpg', alt: 'GDG community at DevFest' },
+      { src: '/Projects/GDG/GDG 3.jpg', alt: 'GDG DevFest stage and audience' },
     ],
   },
   {
     title: 'CardioGuard',
     description:
-      "CardioGuard tackles something real: most people don't know their heart attack risk until they're already in a clinic. I built this with a team of four as a university capstone — a full-stack web app where patients fill out a short health questionnaire and get back an AI-powered risk score, broken down by contributing factor using SHAP explainability. We shipped role-based dashboards for both patients and doctors, JWT-secured APIs with token refresh flows, and a Random Forest classifier trained on real Kaggle medical data. The part I'm proudest of is the explainability layer — it's not just a percentage, it shows exactly which metrics are pulling the number up or down, so a doctor can actually act on it.",
+      "CardioGuard tackles something real: most people don't know their heart attack risk until they're already in a clinic. I built it with a team of four as a university capstone. It's a full-stack web app where patients fill out a short health questionnaire and get back an AI risk score, broken down by contributing factor using SHAP explainability. We shipped dashboards for both patients and doctors, JWT-secured APIs with token refresh, and a Random Forest classifier trained on real Kaggle medical data. The explainability layer is the part I'm proudest of. It doesn't just hand you a percentage. It shows exactly which metrics are pulling the number up or down, so a doctor can actually act on it.",
     techStack: [
       'Python',
-      'Django',
+      'Django REST Framework',
       'scikit-learn',
-      'SHAP',
+      'Random Forest',
+      'SHAP Explainability',
+      'Pandas / NumPy',
+      'PostgreSQL',
       'Chart.js',
-      'REST API',
-      'JWT Auth',
+      'JWT (Refresh Flow)',
     ],
     date: '2024',
     links: [],
     images: [
-      { src: '/project-cardioguard-1.svg', alt: 'CardioGuard patient assessment form' },
-      { src: '/project-cardioguard-2.svg', alt: 'CardioGuard risk score with SHAP breakdown' },
-      { src: '/project-cardioguard-3.svg', alt: 'CardioGuard doctor dashboard' },
+      { src: '/Projects/Cardioguard/Cardioguard 1.png', alt: 'CardioGuard patient assessment form' },
+      { src: '/Projects/Cardioguard/Cardioguard 2.png', alt: 'CardioGuard risk score with SHAP breakdown' },
+      { src: '/Projects/Cardioguard/Cardioguard 3.png', alt: 'CardioGuard doctor dashboard' },
     ],
   },
   {
     title: 'SubSpace',
     description:
-      'An Android puzzle game with portal mechanics, where I led UI/UX design. I created the full design system (HUD elements, game icons, user flows) and built 3D assets in Blender — a portal gun, the main character robot, and environmental props.',
-    techStack: ['Figma', 'Blender', 'Game UI', 'Design Systems', '3D Modelling'],
+      'An Android puzzle game with portal mechanics, where I led UI/UX design. I created the full design system (HUD elements, game icons, user flows) and built the 3D assets in Blender: a portal gun, the main character robot, and a set of environmental props.',
+    techStack: [
+      'Figma',
+      'Blender',
+      '3D Modelling',
+      'Texturing & Lighting',
+      'Game UI/UX',
+      'Design Systems',
+      'Prototyping',
+    ],
     date: '2023',
     links: [],
     images: [
-      { src: '/project-subspace-1.png', alt: 'SubSpace game UI' },
-      { src: '/project-subspace-2.png', alt: 'SubSpace 3D assets' },
-      { src: '/project-subspace-3.png', alt: 'SubSpace level design' },
+      { src: '/Projects/Subspace/Subspace 1.webp', alt: 'SubSpace game UI' },
+      { src: '/Projects/Subspace/Subspace 2.webp', alt: 'SubSpace 3D assets' },
+      { src: '/Projects/Subspace/Subspace 3.webp', alt: 'SubSpace level design' },
     ],
   },
   {
@@ -73,54 +84,70 @@ const PROJECT_CONTENT = [
     date: '2024',
     links: [],
     images: [
-      { src: '/project-innovote-1.png', alt: 'Innovote app design' },
-      { src: '/project-innovote-2.png', alt: 'Innovote user flows' },
-      { src: '/project-innovote-3.png', alt: 'Innovote research findings' },
+      { src: '/Projects/Innovote/Innovote 1.webp', alt: 'Innovote app design' },
+      { src: '/Projects/Innovote/Innovote 2.webp', alt: 'Innovote user flows' },
+      { src: '/Projects/Innovote/Innovote 4.webp', alt: 'Innovote screens' },
     ],
   },
   {
     title: 'Syz',
     description:
-      'PLACEHOLDER — replace with the real Syz story. A product I worked on focused on [domain/problem], where I [your role and contribution]. Built with a lean, iterative approach: scoping a tight MVP, designing the core flows, and shipping an early version to real users to learn fast.',
-    techStack: ['Product', 'Figma', 'MVP', 'UX Research'],
+      "Syz takes the Sisyphean grind out of job hunting in the DACH region. It's an AI job-application platform where a single Master CV powers everything. You paste a job description, pick German or English, and Syz generates an ATS-optimized CV and cover letter, compiled to PDF via LaTeX with proper DIN 5008 formatting. It parses your existing resume with Claude into a structured profile and tracks every application from Draft to Offer. There's even a voice-to-voice AI interview coach built on ElevenLabs so you can practice before the real thing. The whole point was to make applying feel less like pushing a boulder uphill: one source of truth, tailored documents in seconds, and a tracker that keeps the chaos in order.",
+    techStack: [
+      'Next.js 15',
+      'TypeScript',
+      'Tailwind CSS',
+      'Supabase',
+      'Clerk',
+      'Anthropic Claude',
+      'ElevenLabs',
+      'LaTeX',
+    ],
     date: '2025',
     links: [],
     images: [
-      { src: '/project-syz-1.png', alt: 'Syz overview' },
-      { src: '/project-syz-2.png', alt: 'Syz screen two' },
-      { src: '/project-syz-3.png', alt: 'Syz screen three' },
+      { src: '/Projects/Syz/Syz 1.png', alt: 'Syz dashboard' },
+      { src: '/Projects/Syz/Syz 2.png', alt: 'Syz tailored CV generation' },
+      { src: '/Projects/Syz/Syz 3.png', alt: 'Syz application tracker' },
+      { src: '/Projects/Syz/Syz 4.png', alt: 'Syz AI interview coach' },
     ],
   },
   {
     title: 'Swiftron',
     description:
-      'PLACEHOLDER — replace with the real Swiftron scope. Swiftron is a Model Context Protocol (MCP) server I built to give AI agents structured, tool-based access to [your system / data source]. It exposes a clean set of MCP tools so assistants like Claude can query and act on real data directly — instead of guessing — turning a manual workflow into something an agent can drive.',
-    techStack: ['TypeScript', 'MCP', 'Node.js', 'Anthropic API', 'Tool Use'],
+      "Swiftron is an MCP server I built at the CF x HHN AI Hackathon in Heilbronn that exposes a pretrained ONNX order-prediction model to AI agents. I was working under NDA with an inference-only model, so I wrapped it in a set of Model Context Protocol tools that let an agent actually drive procurement planning: predicting a customer's next basket, running real beam search over ranked scenarios, and personalizing predictions through the model's sensor mechanism without ever retraining the weights. Every tool call is audited with latency and identity, PII gets scrubbed before tokenization, and a Next.js dashboard shows procurement managers the live predictions. The constraint I found most interesting was honesty: instead of faking a retraining loop, I exposed the model's real personalization surface and let the agent condition on it.",
+    techStack: [
+      'Python',
+      'FastMCP',
+      'ONNX',
+      'MCP',
+      'Next.js',
+      'Anthropic API',
+      'Beam Search',
+    ],
     date: '2026',
     links: [],
     images: [
-      { src: '/project-swiftron-1.png', alt: 'Swiftron MCP server architecture' },
-      { src: '/project-swiftron-2.png', alt: 'Swiftron tools in action' },
-      { src: '/project-swiftron-3.png', alt: 'Swiftron agent demo' },
+      { src: '/Projects/Swiftron/Swiftron 1.png', alt: 'Swiftron procurement dashboard' },
+      { src: '/Projects/Swiftron/Swiftron 2.png', alt: 'Swiftron ranked scenarios and tool calls' },
     ],
   },
   {
     title: 'HappyRobot',
     description:
-      'PLACEHOLDER — replace with the real use case. An agent-orchestration project built on HappyRobot, wiring up AI agents to handle [workflow] end-to-end: routing tasks between agents, calling tools, and handing off to a human when needed. Focused on making a multi-step process reliable enough to run with minimal supervision.',
+      "Clerque is an end-to-end AI outbound sales platform my team built at the TUM.ai Makeathon, where we placed 4th in the HappyRobot challenge. Our agent, Lena, calls prospects automatically, opens with a personalized hook, runs discovery, pitches a landing-page service, and follows up with a tailored email proposal or mock-up depending on how the call goes. My favorite part is the memory loop: every call she makes is logged with cognee, so she gets a little smarter each conversation. We built it over a weekend on HappyRobot, Claude, cognee, and unipile with a great team of five.",
     techStack: [
-      'AI Agents',
-      'Agent Orchestration',
       'HappyRobot',
-      'Automation',
-      'LLM',
+      'Anthropic Claude',
+      'cognee',
+      'unipile',
+      'Voice AI',
+      'AI Agents',
     ],
     date: '2026',
     links: [],
     images: [
-      { src: '/project-happyrobot-1.png', alt: 'HappyRobot agent flow' },
-      { src: '/project-happyrobot-2.png', alt: 'HappyRobot orchestration dashboard' },
-      { src: '/project-happyrobot-3.png', alt: 'HappyRobot run logs' },
+      { src: '/Projects/HappyRobot/HappyRobot.webp', alt: 'Clerque AI sales system on HappyRobot' },
     ],
   },
 ];
@@ -209,13 +236,12 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
             {projectData.images.map((image, index) => (
               <div
                 key={index}
-                className="relative aspect-video overflow-hidden rounded-2xl"
+                className="flex items-center justify-center overflow-hidden rounded-2xl bg-[#F5F5F7] dark:bg-[#1D1D1F]"
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  fill
-                  className="object-cover transition-transform"
+                  className="h-auto w-full object-contain"
                 />
               </div>
             ))}
@@ -231,43 +257,43 @@ export const data = [
   {
     category: 'Community',
     title: 'GDG DevFest',
-    src: '/gdg-1.jpg',
+    src: '/Projects/GDG/gdg-1.jpg',
     content: <ProjectContent project={{ title: 'GDG DevFest' }} />,
   },
   {
     category: 'Machine Learning',
     title: 'CardioGuard',
-    src: '/project-cardioguard-1.png',
+    src: '/Projects/Cardioguard/Cardioguard Banner.jpg',
     content: <ProjectContent project={{ title: 'CardioGuard' }} />,
   },
   {
     category: 'Game Design',
     title: 'SubSpace',
-    src: '/project-subspace-1.png',
+    src: '/Projects/Subspace/Subspace.webp',
     content: <ProjectContent project={{ title: 'SubSpace' }} />,
   },
   {
     category: 'Product Design',
     title: 'Innovote',
-    src: '/project-innovote-1.png',
+    src: '/Projects/Innovote/Innovote 1.webp',
     content: <ProjectContent project={{ title: 'Innovote' }} />,
   },
   {
-    category: 'Product',
+    category: 'AI Platform',
     title: 'Syz',
-    src: '/project-syz-1.png',
+    src: '/Projects/Syz/Syz 1.png',
     content: <ProjectContent project={{ title: 'Syz' }} />,
   },
   {
     category: 'MCP Server',
     title: 'Swiftron',
-    src: '/project-swiftron-1.png',
+    src: '/Projects/Swiftron/Swiftron.png',
     content: <ProjectContent project={{ title: 'Swiftron' }} />,
   },
   {
     category: 'AI Agents',
     title: 'HappyRobot',
-    src: '/project-happyrobot-1.png',
+    src: '/Projects/HappyRobot/HappyRobot.webp',
     content: <ProjectContent project={{ title: 'HappyRobot' }} />,
   },
 ];

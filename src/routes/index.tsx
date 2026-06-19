@@ -9,9 +9,9 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   BriefcaseBusiness,
+  FileText,
   Laugh,
   Layers,
-  PartyPopper,
   UserRoundSearch,
 } from "lucide-react";
 import Image from "next/image";
@@ -26,18 +26,27 @@ export const Route = createFileRoute("/")({
 const questions = {
   Me: "Who are you? I want to know more about you.",
   Projects: "What are your projects? What are you working on right now?",
+  Resume: "Can I see your resume?",
   Skills: "What are your skills? Give me a list of your soft and hard skills.",
-  Fun: "What are your hobbies? Tell me about gaming and Formula 1.",
   Contact: "How can I contact you?",
 } as const;
 
 const questionConfig = [
   { key: "Me", color: "#329696", icon: Laugh },
   { key: "Projects", color: "#3E9858", icon: BriefcaseBusiness },
+  { key: "Resume", color: "#2563EB", icon: FileText },
   { key: "Skills", color: "#856ED9", icon: Layers },
-  { key: "Fun", color: "#B95F9D", icon: PartyPopper },
   { key: "Contact", color: "#C19433", icon: UserRoundSearch },
 ] as const;
+
+// Each quick-question opens its predefined card straight away (no AI call).
+const questionTools: Record<string, string> = {
+  Me: "getPresentation",
+  Projects: "getProjects",
+  Resume: "getResume",
+  Skills: "getSkills",
+  Contact: "getContact",
+};
 
 /* ---------- component ---------- */
 function Home() {
@@ -45,8 +54,11 @@ function Home() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const goToChat = (query: string) =>
-    router.push(`/chat?query=${encodeURIComponent(query)}`);
+  const goToChat = (query: string) => router.push(`/chat?query=${encodeURIComponent(query)}`);
+
+  // Quick-question buttons pass the card's tool so the chat shows it instantly.
+  const goToCard = (query: string, tool: string) =>
+    router.push(`/chat?query=${encodeURIComponent(query)}&tool=${tool}`);
 
   /* hero animations */
   const topElementVariants = {
@@ -99,8 +111,6 @@ function Home() {
         </div>
       </div>
 
-      
-
       {/* header */}
       <motion.div
         data-zigzag-selection
@@ -116,9 +126,7 @@ function Home() {
         <h2 className="text-secondary-foreground mt-1 pr-2 text-xl font-semibold md:text-2xl">
           Hey, I'm Max 👋
         </h2>
-        <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
-          Product Manager
-        </h1>
+        <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">Product Manager</h1>
       </motion.div>
 
       {/* centre memoji */}
@@ -173,7 +181,7 @@ function Home() {
           {questionConfig.map(({ key, color, icon: Icon }) => (
             <Button
               key={key}
-              onClick={() => goToChat(questions[key])}
+              onClick={() => goToCard(questions[key], questionTools[key])}
               variant="outline"
               className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 shadow-none backdrop-blur-lg active:scale-95 md:p-10 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10"
             >

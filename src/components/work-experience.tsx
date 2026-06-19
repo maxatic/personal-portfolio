@@ -31,7 +31,7 @@ const experiences: ExperienceEntry[] = [
     highlights: [
       'Built the campaign analytics framework adopted as the team standard for in-cycle performance monitoring across the grocery merchant portfolio',
       'Develop merchant-facing content and onboarding collateral for FMCG partner campaigns',
-      'Coordinate concurrent marketing workstreams — all alongside my final year at TUM',
+      'Coordinate concurrent marketing workstreams, all alongside my final year at TUM',
     ],
     emojiLeft: '/amazon program 1.png',
     emojiRight: '/amazon program 2.png',
@@ -46,9 +46,9 @@ const experiences: ExperienceEntry[] = [
     current: false,
     logo: '/Amazon.png',
     highlights: [
-      'Built a RAG-based internal AI assistant on a 1,500+ file knowledge base — cut metric retrieval time by 80%',
+      'Built a RAG-based internal AI assistant on a 1,500+ file knowledge base, cutting metric retrieval time by 80%',
       '$250K Q4 logistics cost savings via defect resolution sprints across 30 high-impact vendors',
-      'Automated weekly KPI tracking — +15% on-time delivery across flagged vendors',
+      'Automated weekly KPI tracking, +15% on-time delivery across flagged vendors',
       'Continuous Learning & Development Award within an 80+ person management team',
     ],
     emojiLeft: '/amazon product 1.png',
@@ -64,7 +64,7 @@ const experiences: ExperienceEntry[] = [
     current: false,
     logo: '/TUM.png',
     highlights: [
-      'Built SQL + Python/R pipelines that fully automated research dataset preparation — manual hours down to two scripts',
+      'Built SQL + Python/R pipelines that fully automated research dataset preparation, taking manual hours down to two scripts',
       'Supported PhD empirical research on student behaviour and learning outcomes',
       'Designed and taught the full Microeconomics tutoring curriculum from scratch',
     ],
@@ -82,7 +82,7 @@ const experiences: ExperienceEntry[] = [
     logo: '/CF.png',
     highlights: [
       'Ran a 150+ survey and 20+ interview research program that shaped the next cohort design',
-      "Authored the team's first PRD in Confluence — adopted as the core knowledge base",
+      "Authored the team's first PRD in Confluence, later adopted as the core knowledge base",
       'Ops for the Corporate Campus Challenge with corporate partners incl. Porsche',
     ],
     emojiLeft: '/campusfounders1.png',
@@ -98,7 +98,7 @@ const experiences: ExperienceEntry[] = [
     current: false,
     logo: '/INVISID.png',
     highlights: [
-      'Validated market demand via 20+ user interviews — local-only data became the MVP anchor',
+      'Validated market demand via 20+ user interviews, where local-only data became the MVP anchor',
       'Defined the MVP feature set and data-backed roadmap that carried the team to launch',
       'Redesigned the landing page around a research-backed positioning framework',
     ],
@@ -115,7 +115,7 @@ const experiences: ExperienceEntry[] = [
     current: false,
     logo: '/VEON.png',
     highlights: [
-      'Cut sign-up from 5 steps to 2 via iterative A/B testing — +15% new user conversion',
+      'Cut sign-up from 5 steps to 2 via iterative A/B testing, +15% new user conversion',
       'Automated dashboard deployment: setup time from 1 day to 10 minutes, ~2,000 hours saved per year',
       'Ran UX research and a hypothesis backlog at a NASDAQ-listed telecom with 60+ digital products',
     ],
@@ -188,7 +188,7 @@ export function WorkExperience() {
             Work Experience
           </h2>
           <p className="text-muted-foreground text-sm">
-            Where I shipped things — hover a role for a little surprise
+            Where I shipped things. Hover a role for a little surprise
           </p>
         </div>
       </div>

@@ -1,11 +1,10 @@
-import { tool } from 'ai';
-import { z } from 'zod';
+import { tool } from "ai";
+import { z } from "zod";
 
 export const getResume = tool({
-  description:
-    'This tool show my resume.',
+  description: "Show my resume section with German and US CV versions.",
   parameters: z.object({}),
   execute: async () => {
-    return "You can download my resume by clicking on the link above.";
+    return "Use the resume card to preview or download the available CV version.";
   },
 });

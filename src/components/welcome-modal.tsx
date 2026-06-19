@@ -66,9 +66,9 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
             className="flex h-full flex-col"
           >
             {/* Header */}
-            <DialogHeader className="relative flex flex-row items-start justify-between px-8 pt-8 pb-6">
+            <DialogHeader className="relative flex flex-row items-start justify-between px-5 pt-6 pb-4 sm:px-8 sm:pt-8 sm:pb-6">
               <div>
-                <DialogTitle className="flex items-center gap-2 text-4xl font-bold tracking-tight">
+                <DialogTitle className="flex items-center gap-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
                   Welcome to Max's AI Portfolio
                 </DialogTitle>
                 <DialogDescription className="mt-2 text-base">
@@ -88,7 +88,7 @@ export default function WelcomeModal({ trigger }: WelcomeModalProps) {
 
             {/* Content area */}
             <div className="space-y-6 overflow-y-auto px-2 py-4 md:px-8">
-              <section className="bg-accent w-full space-y-8 rounded-2xl p-8">
+              <section className="bg-accent w-full space-y-6 rounded-2xl p-6 sm:space-y-8 sm:p-8">
                 {/* What section */}
                 <div className="space-y-3">
                   <h3 className="text-primary flex items-center gap-2 text-xl font-semibold">

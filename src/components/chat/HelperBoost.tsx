@@ -1,14 +1,10 @@
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip";
+import { motion } from "framer-motion";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@radix-ui/react-tooltip';
-import { motion } from 'framer-motion';
-import {
+  Award,
   BriefcaseBusiness,
   BriefcaseIcon,
   ChevronDown,
@@ -16,125 +12,135 @@ import {
   ChevronUp,
   CircleEllipsis,
   CodeIcon,
+  FileText,
   GraduationCapIcon,
   Laugh,
   Layers,
   MailIcon,
-  PartyPopper,
   Sparkles,
   UserRoundSearch,
   UserSearch,
-} from 'lucide-react';
-import { useState } from 'react';
-import { Drawer } from 'vaul';
+} from "lucide-react";
+import { useState } from "react";
+import { Drawer } from "vaul";
 
 interface HelperBoostProps {
   submitQuery?: (query: string) => void;
+  submitPredefined?: (query: string, tool: string) => void;
   setInput?: (value: string) => void;
   hasReachedLimit?: boolean;
 }
 
+// Each subcategory chip maps to the card it should always render instantly.
+const questionTools: Record<string, string> = {
+  Me: "getPresentation",
+  Experience: "getExperience",
+  Education: "getEducation",
+  Resume: "getResume",
+  Projects: "getProjects",
+  Skills: "getSkills",
+  Certifications: "getCertifications",
+  Contact: "getContact",
+};
+
 const questions = {
-  Me: 'Who are you? I want to know more about you.',
-  Experience: 'Where have you worked? Walk me through your work experience.',
+  Me: "Who are you? I want to know more about you.",
+  Experience: "Where have you worked? Walk me through your work experience.",
   Education: "What's your educational background? Where did you study?",
-  Projects: 'What are your projects? What are you working on right now?',
-  Skills: 'What are your skills? Give me a list of your soft and hard skills.',
-  Fun: "What's the craziest thing you've ever done? What are your hobbies?",
-  Contact:
-    'How can I reach you? What kind of role are you looking for?',
+  Resume: "Can I see your resume?",
+  Projects: "What are your projects? What are you working on right now?",
+  Skills: "What are your skills? Give me a list of your soft and hard skills.",
+  Certifications: "What certifications do you have? Show me your credentials.",
+  Contact: "How can I reach you? What kind of role are you looking for?",
 };
 
 const questionConfig = [
-  { key: 'Me', color: '#329696', icon: Laugh },
-  { key: 'Experience', color: '#C26A2D', icon: BriefcaseIcon },
-  { key: 'Education', color: '#2F77B5', icon: GraduationCapIcon },
-  { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
-  { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
-  { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
+  { key: "Me", color: "#329696", icon: Laugh },
+  { key: "Experience", color: "#C26A2D", icon: BriefcaseIcon },
+  { key: "Education", color: "#2F77B5", icon: GraduationCapIcon },
+  { key: "Resume", color: "#2563EB", icon: FileText },
+  { key: "Projects", color: "#3E9858", icon: BriefcaseBusiness },
+  { key: "Skills", color: "#856ED9", icon: Layers },
+  { key: "Certifications", color: "#10A37F", icon: Award },
+  { key: "Contact", color: "#C19433", icon: UserRoundSearch },
 ];
 
 // Helper drawer data
 const specialQuestions = [
-  'Gaming you said?? Tell me more!',
-  'Walk me through your work experience.',
-  'Who are you?',
-  'Can I see your resume?',
-  'What projects are you most proud of?',
-  'What are your skills?',
-  'How can I reach you?',
+  "Gaming you said?? Tell me more!",
+  "Walk me through your work experience.",
+  "Who are you?",
+  "Can I see your resume?",
+  "What projects are you most proud of?",
+  "What are your skills?",
+  "How can I reach you?",
   "What's the craziest thing you've ever done?",
 ];
 
 const questionsByCategory = [
   {
-    id: 'me',
-    name: 'Me',
+    id: "me",
+    name: "Me",
     icon: UserSearch,
     questions: [
-      'Who are you?',
-      'What are your passions?',
-      'How did you get started in tech?',
-      'Where do you see yourself in 5 years?',
+      "Who are you?",
+      "What are your passions?",
+      "How did you get started in tech?",
+      "Where do you see yourself in 5 years?",
     ],
   },
   {
-    id: 'experience',
-    name: 'Work Experience',
+    id: "experience",
+    name: "Work Experience",
     icon: BriefcaseBusiness,
     questions: [
-      'Walk me through your work experience.',
-      'How was your experience at Amazon?',
-      'What did you build at VEON Beeline?',
-      'Tell me about your startup experience.',
+      "Walk me through your work experience.",
+      "How was your experience at Amazon?",
+      "What did you build at VEON Beeline?",
+      "Tell me about your startup experience.",
     ],
   },
   {
-    id: 'professional',
-    name: 'Professional',
+    id: "professional",
+    name: "Professional",
     icon: BriefcaseIcon,
     questions: [
-      'Can I see your resume?',
-      'What makes you a valuable team member?',
-      'Why should I hire you?',
+      "Can I see your resume?",
+      "What makes you a valuable team member?",
+      "Why should I hire you?",
       "What's your educational background?",
     ],
   },
   {
-    id: 'projects',
-    name: 'Projects',
+    id: "projects",
+    name: "Projects",
     icon: CodeIcon,
-    questions: ['What projects are you most proud of?'],
+    questions: ["What projects are you most proud of?"],
   },
   {
-    id: 'skills',
-    name: 'Skills',
+    id: "skills",
+    name: "Skills",
     icon: GraduationCapIcon,
+    questions: ["What are your skills?", "How was your experience at Amazon?"],
+  },
+  {
+    id: "certifications",
+    name: "Certifications",
+    icon: Award,
     questions: [
-      'What are your skills?',
-      'How was your experience at Amazon?',
+      "What certifications do you have?",
+      "Are you Scrum certified?",
+      "Show me your credentials.",
     ],
   },
   {
-    id: 'fun',
-    name: 'Fun',
-    icon: PartyPopper,
-    questions: [
-      'Gaming you said?? Tell me more!',
-      "What's the craziest thing you've ever done?",
-      'Which Formula 1 team do you support?',
-      'What are you certain about that most people get wrong?',
-    ],
-  },
-  {
-    id: 'contact',
-    name: 'Contact & Future',
+    id: "contact",
+    name: "Contact & Future",
     icon: MailIcon,
     questions: [
-      'How can I reach you?',
-      'What kind of role are you looking for?',
-      'Where are you located?',
+      "How can I reach you?",
+      "What kind of role are you looking for?",
+      "Where are you located?",
     ],
   },
 ];
@@ -148,9 +154,9 @@ const AnimatedChevron = () => {
       }}
       transition={{
         duration: 1.5,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         repeat: Infinity,
-        repeatType: 'loop',
+        repeatType: "loop",
       }}
       className="text-primary mb-1.5"
     >
@@ -161,15 +167,21 @@ const AnimatedChevron = () => {
 
 export default function HelperBoost({
   submitQuery,
+  submitPredefined,
   setInput,
   hasReachedLimit = false,
 }: HelperBoostProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [open, setOpen] = useState(false);
 
+  // Subcategory chips always render their predefined card (no AI call).
   const handleQuestionClick = (questionKey: string) => {
-    if (submitQuery) {
-      submitQuery(questions[questionKey as keyof typeof questions]);
+    const question = questions[questionKey as keyof typeof questions];
+    const tool = questionTools[questionKey];
+    if (submitPredefined && tool) {
+      submitPredefined(question, tool);
+    } else {
+      submitQuery?.(question);
     }
   };
 
@@ -189,13 +201,7 @@ export default function HelperBoost({
       <Drawer.Root open={open} onOpenChange={setOpen}>
         <div className="w-full">
           {/* Toggle Button */}
-          <div
-            className={
-              isVisible
-                ? 'mb-2 flex justify-center'
-                : 'mb-0 flex justify-center'
-            }
-          >
+          <div className={isVisible ? "mb-2 flex justify-center" : "mb-0 flex justify-center"}>
             <button
               onClick={toggleVisibility}
               className="flex items-center gap-1 px-3 py-1 text-xs text-gray-500 transition-colors hover:text-gray-700"
@@ -219,17 +225,17 @@ export default function HelperBoost({
             <div className="w-full">
               <div
                 className="flex w-full flex-wrap gap-1 md:gap-3"
-                style={{ justifyContent: 'safe center' }}
+                style={{ justifyContent: "safe center" }}
               >
                 {questionConfig.map(({ key, color, icon: Icon }) => (
                   <Button
                     key={key}
                     onClick={() => !hasReachedLimit && handleQuestionClick(key)}
                     variant="outline"
-                    className={`h-auto min-w-[100px] flex-shrink-0 rounded-xl border px-4 py-3 shadow-none backdrop-blur-sm transition-none ${
-                      hasReachedLimit 
-                        ? 'cursor-not-allowed border-gray-200 bg-gray-100 opacity-50' 
-                        : 'border-border hover:bg-border/30 cursor-pointer bg-white/80 active:scale-95'
+                    className={`h-auto min-w-[100px] flex-shrink-0 rounded-xl border px-4 py-3 shadow-none backdrop-blur-sm transition-colors ${
+                      hasReachedLimit
+                        ? "cursor-not-allowed border-gray-200 bg-gray-100 opacity-50"
+                        : "border-border hover:bg-accent/80 hover:border-foreground/20 hover:shadow-sm cursor-pointer bg-white/80 active:scale-95"
                     }`}
                     disabled={hasReachedLimit}
                   >
@@ -244,12 +250,15 @@ export default function HelperBoost({
                 <TooltipProvider>
                   <Tooltip delayDuration={0}>
                     <TooltipTrigger asChild>
-                      <Drawer.Trigger className="group relative flex flex-shrink-0 items-center justify-center" disabled={hasReachedLimit}>
+                      <Drawer.Trigger
+                        className="group relative flex flex-shrink-0 items-center justify-center"
+                        disabled={hasReachedLimit}
+                      >
                         <motion.div
-                          className={`flex h-auto items-center space-x-1 rounded-xl border px-4 py-3 text-sm backdrop-blur-sm transition-all duration-200 ${
-                            hasReachedLimit 
-                              ? 'cursor-not-allowed border-gray-200 bg-gray-100 opacity-50' 
-                              : 'hover:bg-border/30 cursor-pointer border-neutral-200 bg-white/80 dark:border-neutral-800 dark:bg-neutral-900'
+                          className={`flex h-auto items-center space-x-1 rounded-xl border px-4 py-3 text-sm backdrop-blur-sm transition-colors duration-200 ${
+                            hasReachedLimit
+                              ? "cursor-not-allowed border-gray-200 bg-gray-100 opacity-50"
+                              : "hover:bg-accent/80 hover:border-foreground/20 hover:shadow-sm cursor-pointer border-neutral-200 bg-white/80 dark:border-neutral-800 dark:bg-neutral-900"
                           }`}
                           whileHover={!hasReachedLimit ? { scale: 1 } : {}}
                           whileTap={!hasReachedLimit ? { scale: 0.98 } : {}}
@@ -315,19 +324,12 @@ interface CategorySectionProps {
   onQuestionClick: (question: string) => void;
 }
 
-function CategorySection({
-  name,
-  Icon,
-  questions,
-  onQuestionClick,
-}: CategorySectionProps) {
+function CategorySection({ name, Icon, questions, onQuestionClick }: CategorySectionProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center gap-2.5 px-1">
         <Icon className="h-5 w-5" />
-        <Drawer.Title className="text-[22px] font-medium text-gray-900">
-          {name}
-        </Drawer.Title>
+        <Drawer.Title className="text-[22px] font-medium text-gray-900">{name}</Drawer.Title>
       </div>
 
       <Separator className="my-4" />
@@ -359,42 +361,37 @@ function QuestionItem({ question, onClick, isSpecial }: QuestionItemProps) {
   return (
     <motion.button
       className={cn(
-        'flex w-full items-center justify-between rounded-[10px]',
-        'text-md px-6 py-4 text-left font-normal',
-        'transition-all',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
-        isSpecial ? 'bg-black' : 'bg-[#F7F8F9]'
+        "flex w-full items-center justify-between rounded-[10px]",
+        "text-md px-6 py-4 text-left font-normal",
+        "transition-all",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
+        isSpecial ? "bg-black" : "bg-[#F7F8F9]",
       )}
       onClick={onClick}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       whileHover={{
-        backgroundColor: isSpecial ? undefined : '#F0F0F2',
+        backgroundColor: isSpecial ? undefined : "#F0F0F2",
       }}
       whileTap={{
         scale: 0.98,
-        backgroundColor: isSpecial ? undefined : '#E8E8EA',
+        backgroundColor: isSpecial ? undefined : "#E8E8EA",
       }}
     >
       <div className="flex items-center">
         {isSpecial && <Sparkles className="mr-2 h-4 w-4 text-white" />}
-        <span className={isSpecial ? 'font-medium text-white' : ''}>
-          {question}
-        </span>
+        <span className={isSpecial ? "font-medium text-white" : ""}>{question}</span>
       </div>
       <motion.div
         animate={{ x: isHovered ? 4 : 0 }}
         transition={{
-          type: 'spring',
+          type: "spring",
           stiffness: 400,
           damping: 25,
         }}
       >
         <ChevronRight
-          className={cn(
-            'h-5 w-5 shrink-0',
-            isSpecial ? 'text-white' : 'text-primary'
-          )}
+          className={cn("h-5 w-5 shrink-0", isSpecial ? "text-white" : "text-primary")}
         />
       </motion.div>
     </motion.button>

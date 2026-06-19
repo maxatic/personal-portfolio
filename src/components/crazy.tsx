@@ -9,7 +9,7 @@ const Crazy = () => {
     {
       src: '/crazy-move.png',
       alt: 'Moving from Kazakhstan to Germany',
-      caption: 'The big restart — Kazakhstan to Germany',
+      caption: 'The big restart: Kazakhstan to Germany',
     },
   ];
 
@@ -21,10 +21,10 @@ const Crazy = () => {
         </h2>
         <p className="mt-4 text-muted-foreground">
           The boldest thing I've done? Leaving a Software Engineering degree
-          halfway through in Astana and restarting from scratch in Germany —
-          new country, new language, new field (Management & Technology at TUM).
-          No safety net, just a bet that I could build something bigger here.
-          Three years in, it's paying off.
+          halfway through in Astana and restarting from scratch in Germany. New
+          country, new language, a totally different field (Management &
+          Technology at TUM). No safety net, just a bet that I could build
+          something bigger here, and three years in it's paying off.
         </p>
       </div>
       <Photos photos={crazyPhotos} />

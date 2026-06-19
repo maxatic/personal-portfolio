@@ -13,7 +13,7 @@ export const getInternship = tool({
 - 🧑‍💻 **Roles**: Product Manager, AI Product Manager, or Strategy / Operations
 - 🎯 **Focus**: AI products & tooling, data-driven operations, cross-functional execution
 - 🛠️ **Toolkit**: Product & program management, data analytics (SQL, Python, R), RAG/LLM tooling, Figma, KPI systems
-- ✅ **What I bring**: Real impact at Amazon — a RAG AI assistant that cut metric retrieval time 80%, $250K Q4 logistics savings, and ~3 years across Amazon, TUM, and startups
+- ✅ **What I bring**: Real impact at Amazon, including a RAG AI assistant that cut metric retrieval time 80%, $250K Q4 logistics savings, and ~3 years across Amazon, TUM, and startups
 - 🚀 I ship fast, automate everything I can, and turn messy data into clear decisions
 
 📬 **Contact me** via:

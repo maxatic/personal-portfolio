@@ -3,28 +3,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import {
+  IconBrandLinkedin,
+  IconBrandTelegram,
+  IconBrandGithub,
+} from '@tabler/icons-react';
 
 export function Contact() {
   // Contact information
   const contactInfo = {
     name: 'Maxat (Max) Issaliyev',
     email: 'issaliyev.maxat@gmail.com',
-    handle: '@maxissaliyev',
+    handle: '@maxatic',
     socials: [
       {
-        // TODO: replace with your real LinkedIn URL
         name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/maxat-issaliyev/',
+        url: 'https://www.linkedin.com/in/maxatic/',
+        icon: IconBrandLinkedin,
       },
       {
-        // TODO: replace with your real GitHub URL
+        name: 'Telegram',
+        url: 'https://t.me/maxatic',
+        icon: IconBrandTelegram,
+      },
+      {
         name: 'Github',
-        url: 'https://github.com/maxissaliyev',
-      },
-      {
-        // TODO: replace with your real X/Twitter URL
-        name: 'X',
-        url: 'https://x.com/maxissaliyev',
+        url: 'https://github.com/maxatic',
+        icon: IconBrandGithub,
       },
     ],
   };
@@ -66,11 +71,12 @@ export function Contact() {
             {contactInfo.socials.map((social) => (
               <button
                 key={social.name}
-                className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                className="text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
                 onClick={() => openLink(social.url)}
                 title={social.name}
+                aria-label={social.name}
               >
-                {social.name}
+                <social.icon className="h-6 w-6" stroke={1.5} />
               </button>
             ))}
           </div>

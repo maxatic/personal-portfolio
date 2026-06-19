@@ -109,8 +109,9 @@ const InternshipCard = () => {
           What I bring
         </p>
         <p className="text-foreground text-sm">
-          Real product & program impact at Amazon — a RAG AI assistant that cut
-          metric retrieval time by 80%, and $250K in Q4 logistics cost savings.
+          Real product & program impact at Amazon, including a RAG AI assistant
+          that cut metric retrieval time by 80%, and $250K in Q4 logistics cost
+          savings.
           <br /> ~3 years across Amazon, TUM, and early-stage startups. <br /> I
           ship fast, automate everything I can, and turn messy data into clear
           decisions.

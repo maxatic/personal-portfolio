@@ -1251,7 +1251,11 @@ const useFluidCursor = () => {
   }
 
   function generateColor() {
-    let c = HSVtoRGB(Math.random(), 1.0, 1.0);
+    // ChatGPT/OpenAI palette: a teal-to-green band around the brand green
+    // (#10a37f ≈ hue 162°), instead of a full-spectrum rainbow.
+    const hue = 0.42 + Math.random() * 0.1; // ~151°–187°: green → teal
+    const sat = 0.55 + Math.random() * 0.3; // lively but not neon
+    let c = HSVtoRGB(hue, sat, 1.0);
     c.r *= 0.15;
     c.g *= 0.15;
     c.b *= 0.15;

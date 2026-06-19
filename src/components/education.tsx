@@ -29,7 +29,7 @@ const education: EducationEntry[] = [
     logo: '/TUM.png',
     highlights: [
       "Bachelor's thesis on AI adoption in the workplace",
-      'TUMSelect member — selective network for high-GPA students (McKinsey, Porsche, P&G)',
+      'TUMSelect member: selective network for high-GPA students (McKinsey, Porsche, P&G)',
       'Top grades: 1.3 on a 12 ECTS market-research project, 1.0 in CEO Leadership & Strategy',
       'Cross-disciplinary: business core plus CS, ML/data science, and digital systems',
     ],
@@ -45,10 +45,10 @@ const education: EducationEntry[] = [
     gpa: 'GPA 3.32 / 4.0',
     logo: '/AITU.png',
     highlights: [
-      'Completed 138 credits — only the thesis remained',
+      'Completed 138 credits, with only the thesis remaining',
       'Solid CS core: C++, Java, OOP, algorithms, SQL & NoSQL, design patterns',
       'A grades in Back-End Web Dev & Industrial Practice; A- in NoSQL and Design Patterns',
-      'Co-Lead of Google Developer Groups — ran DevFest for 500+ people',
+      'Co-Lead of Google Developer Groups, ran DevFest for 500+ people',
     ],
   },
   {
@@ -62,7 +62,7 @@ const education: EducationEntry[] = [
     gpa: 'Grade 4.0 / 4.0',
     logo: '/CMU.png',
     highlights: [
-      'Scored 98% — demonstrating strong proficiency in programming and computational concepts',
+      'Scored 98%, showing strong proficiency in programming and computational concepts',
     ],
   },
 ];

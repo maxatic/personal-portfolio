@@ -84,34 +84,41 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       {
         name: "viewport",
-        content:
-          "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+        content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
       },
-      { title: "Max Issaliyev — Portfolio" },
+      { title: "Max Issaliyev | Portfolio" },
       {
         name: "description",
         content:
-          "Interactive AI portfolio of Maxat (Max) Issaliyev — Product & Program Manager. Ask the AI anything about my background, projects, skills, and experience.",
+          "Interactive AI portfolio of Maxat (Max) Issaliyev, Product & Program Manager. Ask the AI anything about my background, projects, skills, and experience.",
       },
       { name: "author", content: "Maxat Issaliyev" },
-      { property: "og:title", content: "Max Issaliyev — Portfolio" },
+      { property: "og:title", content: "Max Issaliyev | Portfolio" },
       {
         property: "og:description",
         content:
-          "Interactive AI portfolio that answers questions about Max — his background, projects, and skills.",
+          "Interactive AI portfolio that answers questions about Max: his background, projects, and skills.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://maxissaliyev.com" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Max Issaliyev — Portfolio" },
+      { name: "twitter:title", content: "Max Issaliyev | Portfolio" },
       {
         name: "twitter:description",
         content:
-          "Interactive AI portfolio that answers questions about Max — his background, projects, and skills.",
+          "Interactive AI portfolio that answers questions about Max: his background, projects, and skills.",
       },
       { name: "twitter:creator", content: "@maxissaliyev" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png" },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/54645f71-3d03-45d2-8a86-398ba18bab52/id-preview-93f7ae46--5511a36a-e234-4db9-a8cd-916e2bb597ca.lovable.app-1781005673699.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -146,9 +153,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body
-        className={cn(
-          "bg-background min-h-screen font-sans antialiased",
-        )}
+        className={cn("bg-background min-h-screen font-sans antialiased")}
         style={{ fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif" }}
       >
         {children}

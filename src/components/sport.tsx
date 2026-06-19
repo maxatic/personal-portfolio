@@ -10,7 +10,7 @@ const Sports = () => {
     {
       src: '/hobby-deadlock.png',
       alt: 'Playing Deadlock',
-      caption: 'Grinding ranked in Deadlock — my current main',
+      caption: 'Grinding ranked in Deadlock, my current main',
     },
     {
       src: '/hobby-dota.png',
@@ -25,7 +25,7 @@ const Sports = () => {
     {
       src: '/hobby-f1.png',
       alt: 'Watching Formula 1',
-      caption: 'Race weekend — always cheering for Mercedes 🏎️',
+      caption: 'Race weekend, always cheering for Mercedes 🏎️',
     },
   ];
 
@@ -37,8 +37,8 @@ const Sports = () => {
         </h2>
         <p className="mt-4 text-muted-foreground">
           When I'm not building products or vibecoding, you'll find me deep in a
-          game of Deadlock, Dota 2, or The Finals — or glued to a Formula 1 race
-          weekend, cheering for Mercedes. Here are a few highlights from the fun
+          game of Deadlock, Dota 2, or The Finals, or glued to a Formula 1 race
+          weekend cheering for Mercedes. Here are a few highlights from the fun
           side of life.
         </p>
       </div>
