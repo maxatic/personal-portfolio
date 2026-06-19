@@ -1,7 +1,27 @@
-import { createServerFn } from "@tanstack/react-start";
+import { createServerFn, getWebRequest } from "@tanstack/react-start";
 import { streamText, type Message } from "ai";
+import { createHash } from "crypto";
 import { z } from "zod";
 import { createLovableAiGatewayProvider } from "../ai-gateway.server";
+
+const AI_QUESTION_LIMIT = 6;
+
+function getClientIp(req: Request): string {
+  const h = req.headers;
+  const candidates = [
+    h.get("cf-connecting-ip"),
+    h.get("x-real-ip"),
+    h.get("x-forwarded-for")?.split(",")[0].trim(),
+  ];
+  return candidates.find((v) => !!v) || "unknown";
+}
+
+function hashIp(ip: string): string {
+  // Salt with a server-side value so the stored hash is not a trivially
+  // reversible IP lookup table.
+  const salt = process.env.LOVABLE_API_KEY || "ai-usage-salt";
+  return createHash("sha256").update(`${salt}:${ip}`).digest("hex");
+}
 
 import { SYSTEM_PROMPT } from "../chat/prompt";
 import { getCertifications } from "../chat/tools/getCertifications";
