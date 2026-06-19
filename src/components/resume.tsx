@@ -24,7 +24,6 @@ type ResumeVersion = {
   available: boolean;
 };
 
-import germanCvAsset from "@/assets/resumes/maxat-cv-german.pdf.asset.json";
 
 const resumeVersions: ResumeVersion[] = [
   {
