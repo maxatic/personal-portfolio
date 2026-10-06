@@ -1,5 +1,5 @@
-import { tool } from 'ai';
-import { z } from 'zod';
+import { tool } from "ai";
+import { z } from "zod";
 
 export const getInternship = tool({
   description:
@@ -8,7 +8,7 @@ export const getInternship = tool({
   execute: async () => {
     return `Here's what I'm looking for 👇
 
-- 📅 **Availability**: Full-time from **October 2026** (after I graduate from TUM)
+- 📅 **Availability**: Currently studying my master’s at TUM and working at Red Hat; contact me to discuss timing
 - 🌍 **Location**: **Munich / Germany** 🇩🇪 or remote
 - 🧑‍💻 **Roles**: Product Manager, AI Product Manager, or Strategy / Operations
 - 🎯 **Focus**: AI products & tooling, data-driven operations, cross-functional execution

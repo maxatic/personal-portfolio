@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { CalendarDays, Code2, Globe } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { motion } from "framer-motion";
+import { CalendarDays, Code2, Globe } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const InternshipCard = () => {
   const openMail = () => {
-    window.open('mailto:issaliyev.maxat@gmail.com', '_blank');
+    window.open("mailto:issaliyev.maxat@gmail.com", "_blank");
   };
   const router = useRouter();
 
@@ -22,19 +22,11 @@ const InternshipCard = () => {
         <div className="flex items-center gap-4">
           {/* Avatar placeholder */}
           <div className="bg-muted h-16 w-16 overflow-hidden rounded-full shadow-md">
-            <img
-              src="/avatar-max.jpg"
-              alt="Max's avatar"
-              className="h-full w-full object-cover"
-            />
+            <img src="/avatar-max.jpg" alt="Max's avatar" className="h-full w-full object-cover" />
           </div>
           <div>
-            <h2 className="text-foreground text-2xl font-semibold">
-              Maxat (Max) Issaliyev
-            </h2>
-            <p className="text-muted-foreground text-sm">
-              Open to Full-time Roles
-            </p>
+            <h2 className="text-foreground text-2xl font-semibold">Maxat (Max) Issaliyev</h2>
+            <p className="text-muted-foreground text-sm">Open to Full-time Roles</p>
           </div>
         </div>
 
@@ -57,7 +49,7 @@ const InternshipCard = () => {
           <div>
             <p className="text-foreground text-sm font-medium">Availability</p>
             <p className="text-muted-foreground text-sm">
-              Full-time from October 2026 (post-graduation)
+              Master’s at TUM alongside Red Hat; let’s discuss timing
             </p>
           </div>
         </div>
@@ -65,9 +57,7 @@ const InternshipCard = () => {
           <Globe className="mt-1 h-5 w-5 text-green-500" />
           <div>
             <p className="text-foreground text-sm font-medium">Location</p>
-            <p className="text-muted-foreground text-sm">
-              Munich / Germany 🇩🇪 or remote
-            </p>
+            <p className="text-muted-foreground text-sm">Munich / Germany 🇩🇪 or remote</p>
           </div>
         </div>
 
@@ -75,9 +65,7 @@ const InternshipCard = () => {
         <div className="flex items-start gap-3 sm:col-span-2">
           <Code2 className="mt-1 h-5 w-5 text-purple-500" />
           <div className="w-full">
-            <p className="text-foreground text-sm font-medium">
-              What I do best
-            </p>
+            <p className="text-foreground text-sm font-medium">What I do best</p>
             <div className="text-muted-foreground grid grid-cols-1 gap-y-1 text-sm sm:grid-cols-2">
               <ul className="decoration-none list-disc pl-4">
                 <li>Product & Program Management</li>
@@ -105,16 +93,12 @@ const InternshipCard = () => {
 
       {/* What I bring */}
       <div className="mt-10">
-        <p className="text-foreground mb-2 text-lg font-semibold">
-          What I bring
-        </p>
+        <p className="text-foreground mb-2 text-lg font-semibold">What I bring</p>
         <p className="text-foreground text-sm">
-          Real product & program impact at Amazon, including a RAG AI assistant
-          that cut metric retrieval time by 80%, and $250K in Q4 logistics cost
-          savings.
-          <br /> ~3 years across Amazon, TUM, and early-stage startups. <br /> I
-          ship fast, automate everything I can, and turn messy data into clear
-          decisions.
+          Real product & program impact at Amazon, including a RAG AI assistant that cut metric
+          retrieval time by 80%, and $250K in Q4 logistics cost savings.
+          <br /> ~3 years across Amazon, TUM, and early-stage startups. <br /> I ship fast, automate
+          everything I can, and turn messy data into clear decisions.
         </p>
       </div>
 
@@ -122,9 +106,9 @@ const InternshipCard = () => {
       <div className="mt-8">
         <p className="text-foreground mb-2 text-lg font-semibold">Goal</p>
         <p className="text-foreground text-sm">
-          Join an ambitious team building AI-first products that matter. I want
-          to grow fast, ship real impact, and eventually found my own startup.
-          Structured, analytical, and always automating. 🚀
+          Join an ambitious team building AI-first products that matter. I want to grow fast, ship
+          real impact, and eventually found my own startup. Structured, analytical, and always
+          automating. 🚀
         </p>
       </div>
 

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Download, ExternalLink, Eye, FileText, Loader2 } from "lucide-react";
 import { Suspense, lazy, useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import germanCvAsset from "@/assets/resumes/maxat-cv-german.pdf.asset.json";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const PdfThumbnail = lazy(() =>
@@ -24,29 +23,28 @@ type ResumeVersion = {
   available: boolean;
 };
 
-
 const resumeVersions: ResumeVersion[] = [
   {
     id: "german",
     label: "German",
     title: "German CV",
     description: "German-market version for applications in Germany.",
-    fileName: "Maxat CV German Version.pdf",
-    fileSize: "254 KB",
-    lastUpdated: "June 2026",
-    url: germanCvAsset.url,
+    fileName: "Maxat Resume Germany.pdf",
+    fileSize: "178 KB",
+    lastUpdated: "October 2026",
+    url: "/resumes/maxat-resume-germany.pdf",
     available: true,
   },
   {
     id: "us",
     label: "US",
     title: "US Resume",
-    description: "US-market one-page version, coming soon.",
-    fileName: "Maxat CV US Version.pdf",
-    fileSize: "Pending",
-    lastUpdated: "Coming soon",
-    url: "#",
-    available: false,
+    description: "US-market one-page version for applications.",
+    fileName: "Maxat Resume US.pdf",
+    fileSize: "112 KB",
+    lastUpdated: "October 2026",
+    url: "/resumes/maxat-resume-us.pdf",
+    available: true,
   },
 ];
 
@@ -255,10 +253,7 @@ function PdfModalBody({ url }: { url: string }) {
   const pageWidth = Math.min(Math.max(width - 48, 280), 1000);
 
   return (
-    <div
-      ref={ref}
-      className="flex-1 overflow-y-auto bg-neutral-100 px-4 py-6 dark:bg-neutral-900"
-    >
+    <div ref={ref} className="flex-1 overflow-y-auto bg-neutral-100 px-4 py-6 dark:bg-neutral-900">
       {width > 0 && (
         <Suspense
           fallback={

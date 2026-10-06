@@ -1,5 +1,5 @@
-import { tool } from 'ai';
-import { z } from 'zod';
+import { tool } from "ai";
+import { z } from "zod";
 
 export const getPresentation = tool({
   description:
@@ -8,7 +8,7 @@ export const getPresentation = tool({
   execute: async () => {
     return {
       presentation:
-        "I'm Max Issaliyev, a Product & Program Manager at Amazon focused on AI tooling and data-driven operations. I'm based near Munich, finishing my B.Sc. in Management & Technology at TUM, and I'm passionate about product, AI, data, and entrepreneurship.",
+        "I'm Max Issaliyev, a product person now working as an AI Data Analyst Working Student at Red Hat. I'm based near Munich, studying an M.Sc. in Management & Technology at TUM after completing my bachelor's, and I'm passionate about product, AI, data, and entrepreneurship.",
     };
   },
 });

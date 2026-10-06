@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import React from 'react';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import React from "react";
 
 export function Presentation() {
   // Personal information
   const profile = {
-    name: 'Max Issaliyev',
-    age: 'Product Manager',
-    location: 'Munich, Germany',
+    name: "Max Issaliyev",
+    age: "Product Manager",
+    location: "Munich, Germany",
     // Add a newline character after the emoji
     description:
-      "Hi, I'm Max. 👋\nI'm a product person driven by curiosity and a stubborn need to make things work better, whether that's refining products at Amazon or building apps with startups. My background mixes management, hands-on product work, and a real love for making people's lives a little easier.\n\nI'm happiest in the messy middle, where business, tech, and actual user needs collide. If a feature doesn't solve a problem or pull people in, I keep iterating, because the products I'm proud of came from rolling up my sleeves, asking sharper questions, and actually listening, then turning what I heard into something real.\n\nMy path started where business and technology meet. Studying Management & Technology at TUM gave me the toolkit (analytics, market research, prototyping) and the itch to build for real people, not just slide decks. Amazon, VEON, and a handful of startups taught me the rest. So I stay curious: one day I'm mapping user flows in Figma, the next I'm running an experiment or buried in a spreadsheet, always working to get a product from napkin sketch to launch.",
-    src: '/about-me.jpg',
+      "Hi, I'm Max. 👋\nI'm a product person driven by curiosity and a stubborn need to make things work better, whether that's helping my team adopt AI at Red Hat, refining products at Amazon, or building apps with startups. My background mixes management, hands-on product work, and a real love for making people's lives a little easier.\n\nI'm happiest in the messy middle, where business, tech, and actual user needs collide. If a feature doesn't solve a problem or pull people in, I keep iterating, because the products I'm proud of came from rolling up my sleeves, asking sharper questions, and actually listening, then turning what I heard into something real.\n\nMy path started where business and technology meet. My bachelor's in Management & Technology at TUM gave me the toolkit (analytics, market research, prototyping) and the itch to build for real people, not just slide decks. Now I'm continuing with a master's at TUM alongside AI and data work at Red Hat. Amazon, VEON, and a handful of startups taught me the rest. So I stay curious: one day I'm mapping user flows in Figma, the next I'm running an experiment or buried in a spreadsheet, always working to get a product from napkin sketch to launch.",
+    src: "/about-me.jpg",
     fallbackSrc:
-      'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3',
+      "https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3",
   };
 
   // Animation variants for text elements
@@ -24,7 +24,7 @@ export function Presentation() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' as const },
+      transition: { duration: 0.6, ease: "easeOut" as const },
     },
   };
 
@@ -36,7 +36,7 @@ export function Presentation() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut' as const,
+        ease: "easeOut" as const,
         delay: 0.2,
       },
     },
@@ -94,16 +94,14 @@ export function Presentation() {
         transition={{ delay: 0.6, duration: 0.5 }}
         className="mt-6 flex flex-wrap gap-2"
       >
-        {['Product', 'AI Tooling', 'Data Analytics', 'TUM', 'Startup Builder'].map(
-          (tag) => (
-            <span
-              key={tag}
-              className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-sm"
-            >
-              {tag}
-            </span>
-          )
-        )}
+        {["Product", "AI Tooling", "Data Analytics", "TUM", "Startup Builder"].map((tag) => (
+          <span
+            key={tag}
+            className="bg-secondary text-secondary-foreground rounded-full px-3 py-1 text-sm"
+          >
+            {tag}
+          </span>
+        ))}
       </motion.div>
     </div>
   );

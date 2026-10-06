@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { motion, type Variants } from 'framer-motion';
-import { Briefcase, CalendarDays, MapPin } from 'lucide-react';
-import amazonProgram1 from '@/assets/emojis/amazon-program-1.png.asset.json';
-import amazonProgram2 from '@/assets/emojis/amazon-program-2.png.asset.json';
-import amazonProduct1 from '@/assets/emojis/amazon-product-1.png.asset.json';
-import amazonProduct2 from '@/assets/emojis/amazon-product-2.png.asset.json';
+import { motion, type Variants } from "framer-motion";
+import { Briefcase, CalendarDays, MapPin } from "lucide-react";
+import amazonProgram1 from "@/assets/emojis/amazon-program-1.png.asset.json";
+import amazonProgram2 from "@/assets/emojis/amazon-program-2.png.asset.json";
+import amazonProduct1 from "@/assets/emojis/amazon-product-1.png.asset.json";
+import amazonProduct2 from "@/assets/emojis/amazon-product-2.png.asset.json";
 
 interface ExperienceEntry {
   company: string;
@@ -24,107 +24,124 @@ interface ExperienceEntry {
 
 const experiences: ExperienceEntry[] = [
   {
-    company: 'Amazon',
-    role: 'Program Manager Working Student',
-    team: 'Grocery Partnerships',
-    location: 'Munich, Germany',
-    period: 'Mar 2026 – Present',
-    type: 'Working Student',
+    company: "Red Hat",
+    role: "AI Data Analyst Working Student",
+    team: "GTM & Operations",
+    location: "Munich, Germany",
+    period: "Oct 2026 – Present",
+    type: "Working Student",
     current: true,
-    logo: '/Amazon.png',
+    logo: "/red-hat.svg",
     highlights: [
-      'Built the campaign analytics framework adopted as the team standard for in-cycle performance monitoring across the grocery merchant portfolio',
-      'Develop merchant-facing content and onboarding collateral for FMCG partner campaigns',
-      'Coordinate concurrent marketing workstreams, all alongside my final year at TUM',
+      "Lead team adoption of Gemini Pro, Cursor, and NotebookLM, turning everyday tasks into practical AI use cases",
+      "Run onboarding sessions, identify skill gaps, and coordinate expert support to help the team use AI effectively",
+      "Extract and analyze data for regional GTM decisions, translating findings into clear stakeholder presentations",
+    ],
+    emojiLeft: "/emojis/red-hat-robot.png",
+    emojiRight: "/emojis/red-hat-chart.png",
+  },
+  {
+    company: "Amazon",
+    role: "Program Manager Working Student",
+    team: "Grocery Partnerships",
+    location: "Munich, Germany",
+    period: "Mar 2026 – Sep 2026",
+    type: "Working Student",
+    current: false,
+    logo: "/Amazon.png",
+    highlights: [
+      "Built the campaign analytics framework adopted as the team standard for in-cycle performance monitoring across the grocery merchant portfolio",
+      "Developed merchant-facing content and onboarding collateral for FMCG partner campaigns",
+      "Coordinated concurrent marketing workstreams alongside my final year at TUM",
     ],
     emojiLeft: amazonProgram1.url,
     emojiRight: amazonProgram2.url,
   },
   {
-    company: 'Amazon',
-    role: 'Product Manager Intern',
-    team: 'Supply Chain',
-    location: 'Munich, Germany',
-    period: 'Aug 2025 – Feb 2026',
-    type: 'Internship',
+    company: "Amazon",
+    role: "Product Manager Intern",
+    team: "Supply Chain",
+    location: "Munich, Germany",
+    period: "Aug 2025 – Feb 2026",
+    type: "Internship",
     current: false,
-    logo: '/Amazon.png',
+    logo: "/Amazon.png",
     highlights: [
-      'Built a RAG-based internal AI assistant on a 1,500+ file knowledge base, cutting metric retrieval time by 80%',
-      '$250K Q4 logistics cost savings via defect resolution sprints across 30 high-impact vendors',
-      'Automated weekly KPI tracking, +15% on-time delivery across flagged vendors',
-      'Continuous Learning & Development Award within an 80+ person management team',
+      "Built a RAG-based internal AI assistant on a 1,500+ file knowledge base, cutting metric retrieval time by 80%",
+      "$250K Q4 logistics cost savings via defect resolution sprints across 30 high-impact vendors",
+      "Automated weekly KPI tracking, +15% on-time delivery across flagged vendors",
+      "Continuous Learning & Development Award within an 80+ person management team",
     ],
     emojiLeft: amazonProduct1.url,
     emojiRight: amazonProduct2.url,
   },
   {
-    company: 'TUM School of Management',
-    role: 'Research Assistant',
-    team: 'Chair of Economics',
-    location: 'Heilbronn, Germany',
-    period: 'May 2025 – Aug 2025',
-    type: 'Student Assistant',
+    company: "TUM School of Management",
+    role: "Research Assistant",
+    team: "Chair of Economics",
+    location: "Heilbronn, Germany",
+    period: "May 2025 – Aug 2025",
+    type: "Student Assistant",
     current: false,
-    logo: '/TUM.png',
+    logo: "/TUM.png",
     highlights: [
-      'Built SQL + Python/R pipelines that fully automated research dataset preparation, taking manual hours down to two scripts',
-      'Supported PhD empirical research on student behaviour and learning outcomes',
-      'Designed and taught the full Microeconomics tutoring curriculum from scratch',
+      "Built SQL + Python/R pipelines that fully automated research dataset preparation, taking manual hours down to two scripts",
+      "Supported PhD empirical research on student behaviour and learning outcomes",
+      "Designed and taught the full Microeconomics tutoring curriculum from scratch",
     ],
-    emojiLeft: '/tum1.png',
-    emojiRight: '/tum2.png',
+    emojiLeft: "/tum1.png",
+    emojiRight: "/tum2.png",
   },
   {
-    company: 'Campus Founders',
-    role: 'Program Manager',
-    team: 'Startup & Innovation Programs',
-    location: 'Heilbronn, Germany',
-    period: 'Sep 2024 – Feb 2025',
-    type: 'Working Student',
+    company: "Campus Founders",
+    role: "Program Manager",
+    team: "Startup & Innovation Programs",
+    location: "Heilbronn, Germany",
+    period: "Sep 2024 – Feb 2025",
+    type: "Working Student",
     current: false,
-    logo: '/CF.png',
+    logo: "/CF.png",
     highlights: [
-      'Ran a 150+ survey and 20+ interview research program that shaped the next cohort design',
+      "Ran a 150+ survey and 20+ interview research program that shaped the next cohort design",
       "Authored the team's first PRD in Confluence, later adopted as the core knowledge base",
-      'Ops for the Corporate Campus Challenge with corporate partners incl. Porsche',
+      "Ops for the Corporate Campus Challenge with corporate partners incl. Porsche",
     ],
-    emojiLeft: '/campusfounders1.png',
-    emojiRight: '/campusfounders2.png',
+    emojiLeft: "/campusfounders1.png",
+    emojiRight: "/campusfounders2.png",
   },
   {
-    company: 'INVISID (DeepSign GmbH)',
-    role: 'Product Marketing Manager',
-    team: 'Privacy-first behavioural authentication',
-    location: 'Saarbrücken, Germany',
-    period: 'Apr 2024 – Aug 2024',
-    type: 'Work Study',
+    company: "INVISID (DeepSign GmbH)",
+    role: "Product Marketing Manager",
+    team: "Privacy-first behavioural authentication",
+    location: "Saarbrücken, Germany",
+    period: "Apr 2024 – Aug 2024",
+    type: "Work Study",
     current: false,
-    logo: '/INVISID.png',
+    logo: "/INVISID.png",
     highlights: [
-      'Validated market demand via 20+ user interviews, where local-only data became the MVP anchor',
-      'Defined the MVP feature set and data-backed roadmap that carried the team to launch',
-      'Redesigned the landing page around a research-backed positioning framework',
+      "Validated market demand via 20+ user interviews, where local-only data became the MVP anchor",
+      "Defined the MVP feature set and data-backed roadmap that carried the team to launch",
+      "Redesigned the landing page around a research-backed positioning framework",
     ],
-    emojiLeft: '/invisid1.png',
-    emojiRight: '/invisid2.png',
+    emojiLeft: "/invisid1.png",
+    emojiRight: "/invisid2.png",
   },
   {
-    company: 'VEON / Beeline Kazakhstan',
-    role: 'Product Manager Intern',
-    team: 'Digital Products',
-    location: 'Astana, Kazakhstan',
-    period: 'Jul 2023 – Oct 2023',
-    type: 'Internship',
+    company: "VEON / Beeline Kazakhstan",
+    role: "Product Manager Intern",
+    team: "Digital Products",
+    location: "Astana, Kazakhstan",
+    period: "Jul 2023 – Oct 2023",
+    type: "Internship",
     current: false,
-    logo: '/VEON.png',
+    logo: "/VEON.png",
     highlights: [
-      'Cut sign-up from 5 steps to 2 via iterative A/B testing, +15% new user conversion',
-      'Automated dashboard deployment: setup time from 1 day to 10 minutes, ~2,000 hours saved per year',
-      'Ran UX research and a hypothesis backlog at a NASDAQ-listed telecom with 60+ digital products',
+      "Cut sign-up from 5 steps to 2 via iterative A/B testing, +15% new user conversion",
+      "Automated dashboard deployment: setup time from 1 day to 10 minutes, ~2,000 hours saved per year",
+      "Ran UX research and a hypothesis backlog at a NASDAQ-listed telecom with 60+ digital products",
     ],
-    emojiLeft: '/veon1.png',
-    emojiRight: '/veon2.png',
+    emojiLeft: "/veon1.png",
+    emojiRight: "/veon2.png",
   },
 ];
 
@@ -137,7 +154,7 @@ const emojiLeftVariants: Variants = {
     x: 16,
     scale: 0.4,
     rotate: 8,
-    transition: { duration: 0.2, ease: 'easeIn' },
+    transition: { duration: 0.2, ease: "easeIn" },
   },
   hover: {
     opacity: 1,
@@ -145,7 +162,7 @@ const emojiLeftVariants: Variants = {
     x: 0,
     scale: 1,
     rotate: -14,
-    transition: { type: 'spring', stiffness: 380, damping: 17, mass: 0.8 },
+    transition: { type: "spring", stiffness: 380, damping: 17, mass: 0.8 },
   },
 };
 
@@ -156,7 +173,7 @@ const emojiRightVariants: Variants = {
     x: -16,
     scale: 0.4,
     rotate: -8,
-    transition: { duration: 0.2, ease: 'easeIn' },
+    transition: { duration: 0.2, ease: "easeIn" },
   },
   hover: {
     opacity: 1,
@@ -165,7 +182,7 @@ const emojiRightVariants: Variants = {
     scale: 1,
     rotate: 14,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 380,
       damping: 17,
       mass: 0.8,
@@ -176,7 +193,7 @@ const emojiRightVariants: Variants = {
 
 const cardVariants: Variants = {
   rest: { y: 0, transition: { duration: 0.2 } },
-  hover: { y: -3, transition: { type: 'spring', stiffness: 300, damping: 20 } },
+  hover: { y: -3, transition: { type: "spring", stiffness: 300, damping: 20 } },
 };
 
 export function WorkExperience() {
@@ -188,9 +205,7 @@ export function WorkExperience() {
           <Briefcase className="text-foreground h-5 w-5" />
         </div>
         <div>
-          <h2 className="text-foreground text-xl font-semibold md:text-2xl">
-            Work Experience
-          </h2>
+          <h2 className="text-foreground text-xl font-semibold md:text-2xl">Work Experience</h2>
           <p className="text-muted-foreground text-sm">
             Where I shipped things. Hover a role for a little surprise
           </p>
@@ -204,7 +219,7 @@ export function WorkExperience() {
             key={`${exp.company}-${exp.role}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.08, ease: 'easeOut' }}
+            transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
           >
             <motion.div
               className="relative z-0 hover:z-20"
@@ -247,22 +262,18 @@ export function WorkExperience() {
                   {/* Title + status */}
                   <div className="flex flex-1 flex-col gap-2 md:flex-row md:items-start md:justify-between">
                     <div>
-                      <h3 className="text-foreground text-lg font-semibold">
-                        {exp.role}
-                      </h3>
+                      <h3 className="text-foreground text-lg font-semibold">{exp.role}</h3>
                       <p className="text-muted-foreground">{exp.company}</p>
-                      <p className="text-muted-foreground mt-0.5 text-sm">
-                        {exp.team}
-                      </p>
+                      <p className="text-muted-foreground mt-0.5 text-sm">{exp.team}</p>
                     </div>
                     <span
                       className={`w-fit flex-shrink-0 rounded-full px-3 py-1 text-xs font-medium ${
                         exp.current
-                          ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'
-                          : 'bg-secondary text-muted-foreground'
+                          ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300"
+                          : "bg-secondary text-muted-foreground"
                       }`}
                     >
-                      {exp.current ? 'Current' : exp.type}
+                      {exp.current ? "Current" : exp.type}
                     </span>
                   </div>
                 </div>
@@ -282,10 +293,7 @@ export function WorkExperience() {
 
                   <ul className="mt-4 space-y-1.5">
                     {exp.highlights.map((h) => (
-                      <li
-                        key={h}
-                        className="text-foreground flex gap-2 text-sm leading-relaxed"
-                      >
+                      <li key={h} className="text-foreground flex gap-2 text-sm leading-relaxed">
                         <span className="bg-muted-foreground mt-2 h-1 w-1 flex-shrink-0 rounded-full" />
                         <span>{h}</span>
                       </li>
