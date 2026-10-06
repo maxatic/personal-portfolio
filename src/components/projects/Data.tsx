@@ -29,9 +29,9 @@ const PROJECT_CONTENT: Array<{
     date: '2023',
     links: [],
     images: [
-      { src: '/Projects/GDG/GDG 1.png', alt: 'GDG DevFest in Astana' },
-      { src: '/Projects/GDG/GDG 2.jpg', alt: 'GDG community at DevFest' },
-      { src: '/Projects/GDG/GDG 3.jpg', alt: 'GDG DevFest stage and audience' },
+      { src: '/__l5e/assets-v1/f4e0f13e-ebb9-42d9-9bf6-459136b8c2bb/GDG-1.png', alt: 'GDG DevFest in Astana' },
+      { src: '/__l5e/assets-v1/4b2fd149-977f-46d8-9076-b3bd35bc717f/GDG-2.jpg', alt: 'GDG community at DevFest' },
+      { src: '/__l5e/assets-v1/1e6373cb-2e26-432a-a873-4697890eb909/GDG-3.jpg', alt: 'GDG DevFest stage and audience' },
     ],
   },
   {
@@ -52,9 +52,9 @@ const PROJECT_CONTENT: Array<{
     date: '2024',
     links: [],
     images: [
-      { src: '/Projects/Cardioguard/Cardioguard 1.png', alt: 'CardioGuard patient assessment form' },
-      { src: '/Projects/Cardioguard/Cardioguard 2.png', alt: 'CardioGuard risk score with SHAP breakdown' },
-      { src: '/Projects/Cardioguard/Cardioguard 3.png', alt: 'CardioGuard doctor dashboard' },
+      { src: '/__l5e/assets-v1/f86091cc-32cb-4dc8-87ce-b1cebd86c70a/Cardioguard-1.png', alt: 'CardioGuard patient assessment form' },
+      { src: '/__l5e/assets-v1/42a92a7a-9ec8-40a6-80d7-f09746247ae3/Cardioguard-2.png', alt: 'CardioGuard risk score with SHAP breakdown' },
+      { src: '/__l5e/assets-v1/b925c3ae-2872-449d-8ab8-ada3e75da8b8/Cardioguard-3.png', alt: 'CardioGuard doctor dashboard' },
     ],
   },
   {
@@ -73,9 +73,9 @@ const PROJECT_CONTENT: Array<{
     date: '2023',
     links: [],
     images: [
-      { src: '/Projects/Subspace/Subspace 1.webp', alt: 'SubSpace game UI' },
-      { src: '/Projects/Subspace/Subspace 2.webp', alt: 'SubSpace 3D assets' },
-      { src: '/Projects/Subspace/Subspace 3.webp', alt: 'SubSpace level design' },
+      { src: '/__l5e/assets-v1/64c72aca-0774-48a3-a675-e2749d73e203/Subspace-1.webp', alt: 'SubSpace game UI' },
+      { src: '/__l5e/assets-v1/e80769d1-f96f-44e1-a69d-23e8a8fed5a1/Subspace-2.webp', alt: 'SubSpace 3D assets' },
+      { src: '/__l5e/assets-v1/08ad5bea-507c-41d3-b1e6-ea505115f1ef/Subspace-3.webp', alt: 'SubSpace level design' },
     ],
   },
   {
@@ -92,9 +92,9 @@ const PROJECT_CONTENT: Array<{
     date: '2024',
     links: [],
     images: [
-      { src: '/Projects/Innovote/Innovote 1.webp', alt: 'Innovote app design' },
-      { src: '/Projects/Innovote/Innovote 2.webp', alt: 'Innovote user flows' },
-      { src: '/Projects/Innovote/Innovote 4.webp', alt: 'Innovote screens' },
+      { src: '/__l5e/assets-v1/7efbf370-1057-4b43-b3bd-fc3f85644264/Innovote-1.webp', alt: 'Innovote app design' },
+      { src: '/__l5e/assets-v1/fc76160f-e175-4459-97f5-dc2aa17cc754/Innovote-2.webp', alt: 'Innovote user flows' },
+      { src: '/__l5e/assets-v1/a0755edb-aa1c-4a90-ace3-751e722af045/Innovote-4.webp', alt: 'Innovote screens' },
     ],
   },
   {
@@ -114,10 +114,10 @@ const PROJECT_CONTENT: Array<{
     date: '2025',
     links: [],
     images: [
-      { src: '/Projects/Syz/Syz 1.png', alt: 'Syz dashboard' },
-      { src: '/Projects/Syz/Syz 2.png', alt: 'Syz tailored CV generation' },
-      { src: '/Projects/Syz/Syz 3.png', alt: 'Syz application tracker' },
-      { src: '/Projects/Syz/Syz 4.png', alt: 'Syz AI interview coach' },
+      { src: '/__l5e/assets-v1/09073adb-52d3-4c1a-9acb-52d7afa4720b/Syz-1.png', alt: 'Syz dashboard' },
+      { src: '/__l5e/assets-v1/ce4b750c-ff50-42ff-8f2d-5534ee147a3e/Syz-2.png', alt: 'Syz tailored CV generation' },
+      { src: '/__l5e/assets-v1/1c462545-1921-4c6a-ad85-09ce763a288c/Syz-3.png', alt: 'Syz application tracker' },
+      { src: '/__l5e/assets-v1/ca2f75cc-f77e-487d-a37b-3221573a3c0a/Syz-4.png', alt: 'Syz AI interview coach' },
     ],
   },
   {
@@ -136,8 +136,8 @@ const PROJECT_CONTENT: Array<{
     date: '2026',
     links: [],
     images: [
-      { src: '/Projects/Swiftron/Swiftron 1.png', alt: 'Swiftron procurement dashboard' },
-      { src: '/Projects/Swiftron/Swiftron 2.png', alt: 'Swiftron ranked scenarios and tool calls' },
+      { src: '/__l5e/assets-v1/68eae6c8-86b6-4351-9a9b-b7046e0ccc46/Swiftron-1.png', alt: 'Swiftron procurement dashboard' },
+      { src: '/__l5e/assets-v1/89864860-53c3-45e1-bbc3-7a56e50ed499/Swiftron-2.png', alt: 'Swiftron ranked scenarios and tool calls' },
     ],
   },
   {
@@ -155,7 +155,7 @@ const PROJECT_CONTENT: Array<{
     date: '2026',
     links: [],
     images: [
-      { src: '/Projects/HappyRobot/HappyRobot.webp', alt: 'Clerque AI sales system on HappyRobot' },
+      { src: '/__l5e/assets-v1/681d6a06-aa53-4595-b2aa-707ee397037c/HappyRobot.webp', alt: 'Clerque AI sales system on HappyRobot' },
     ],
   },
 ];
@@ -265,43 +265,43 @@ export const data = [
   {
     category: 'Community',
     title: 'GDG DevFest',
-    src: '/Projects/GDG/gdg-1.jpg',
+    src: '/__l5e/assets-v1/7933c73c-ff84-4039-81ab-e55a2252281e/gdg-1.jpg',
     content: <ProjectContent project={{ title: 'GDG DevFest' }} />,
   },
   {
     category: 'Machine Learning',
     title: 'CardioGuard',
-    src: '/Projects/Cardioguard/Cardioguard Banner.jpg',
+    src: '/__l5e/assets-v1/011aea97-8b16-4a3b-a953-9af82c6d3aa0/Cardioguard-Banner.jpg',
     content: <ProjectContent project={{ title: 'CardioGuard' }} />,
   },
   {
     category: 'Game Design',
     title: 'SubSpace',
-    src: '/Projects/Subspace/Subspace.webp',
+    src: '/__l5e/assets-v1/34a06fd5-bcaf-4914-a284-3342e75f53ed/Subspace.webp',
     content: <ProjectContent project={{ title: 'SubSpace' }} />,
   },
   {
     category: 'Product Design',
     title: 'Innovote',
-    src: '/Projects/Innovote/Innovote 1.webp',
+    src: '/__l5e/assets-v1/7efbf370-1057-4b43-b3bd-fc3f85644264/Innovote-1.webp',
     content: <ProjectContent project={{ title: 'Innovote' }} />,
   },
   {
     category: 'AI Platform',
     title: 'Syz',
-    src: '/Projects/Syz/Syz 1.png',
+    src: '/__l5e/assets-v1/09073adb-52d3-4c1a-9acb-52d7afa4720b/Syz-1.png',
     content: <ProjectContent project={{ title: 'Syz' }} />,
   },
   {
     category: 'MCP Server',
     title: 'Swiftron',
-    src: '/Projects/Swiftron/Swiftron.png',
+    src: '/__l5e/assets-v1/45f1d896-a14b-46bc-9a92-07d2fb6553c5/Swiftron.png',
     content: <ProjectContent project={{ title: 'Swiftron' }} />,
   },
   {
     category: 'AI Agents',
     title: 'HappyRobot',
-    src: '/Projects/HappyRobot/HappyRobot.webp',
+    src: '/__l5e/assets-v1/681d6a06-aa53-4595-b2aa-707ee397037c/HappyRobot.webp',
     content: <ProjectContent project={{ title: 'HappyRobot' }} />,
   },
 ];
