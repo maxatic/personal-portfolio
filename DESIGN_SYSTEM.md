@@ -18,6 +18,10 @@ tokens live in [styles.css](src/styles.css).
    Sentence case everywhere — never Title Case or ALL CAPS.
 5. **Calm motion.** Short, eased transitions (~200–300ms). Nothing bounces for decoration.
 
+The homepage fluid cursor is a deliberate decorative exception: a soft rainbow cycles
+smoothly with pointer movement, with faster fading to prevent muddy color buildup.
+Keep this effect separate from the semantic colors used by interface components.
+
 ## Tokens
 
 All tokens are CSS variables in [styles.css](src/styles.css), exposed to Tailwind as

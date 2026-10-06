@@ -9,7 +9,7 @@ const useFluidCursor = () => {
     SIM_RESOLUTION: 128,
     DYE_RESOLUTION: 1440,
     CAPTURE_RESOLUTION: 1512,
-    DENSITY_DISSIPATION: 0.5,
+    DENSITY_DISSIPATION: 1.4,
     VELOCITY_DISSIPATION: 3,
     PRESSURE: 0.1,
     PRESSURE_ITERATIONS: 20,
@@ -17,7 +17,7 @@ const useFluidCursor = () => {
     SPLAT_RADIUS: 0.2,
     SPLAT_FORCE: 6000,
     SHADING: true,
-    COLOR_UPDATE_SPEED: 10,
+    COLOR_UPDATE_SPEED: 0.18,
     PAUSED: false,
     BACK_COLOR: { r: 0.5, g: 0, b: 0 },
     TRANSPARENT: true,
@@ -901,7 +901,7 @@ const useFluidCursor = () => {
   initFramebuffers();
 
   let lastUpdateTime = Date.now();
-  let colorUpdateTimer = 0.0;
+  let colorUpdateTimer = 0.62;
 
   function update() {
     const dt = calcDeltaTime();
@@ -934,13 +934,10 @@ const useFluidCursor = () => {
   }
 
   function updateColors(dt) {
-    colorUpdateTimer += dt * config.COLOR_UPDATE_SPEED;
-    if (colorUpdateTimer >= 1) {
-      colorUpdateTimer = wrap(colorUpdateTimer, 0, 1);
-      pointers.forEach((p) => {
-        p.color = generateColor();
-      });
-    }
+    colorUpdateTimer = wrap(colorUpdateTimer + dt * config.COLOR_UPDATE_SPEED, 0, 1);
+    pointers.forEach((p) => {
+      p.color = generateColor();
+    });
   }
 
   function applyInputs() {
@@ -1251,11 +1248,9 @@ const useFluidCursor = () => {
   }
 
   function generateColor() {
-    // ChatGPT/OpenAI palette: a teal-to-green band around the brand green
-    // (#10a37f ≈ hue 162°), instead of a full-spectrum rainbow.
-    const hue = 0.42 + Math.random() * 0.1; // ~151°–187°: green → teal
-    const sat = 0.55 + Math.random() * 0.3; // lively but not neon
-    let c = HSVtoRGB(hue, sat, 1.0);
+    // A soft rainbow follows one continuous hue cycle, starting in blue.
+    // Keep the dye subtle so the monochrome interface stays readable.
+    let c = HSVtoRGB(colorUpdateTimer, 0.8, 1.0);
     c.r *= 0.15;
     c.g *= 0.15;
     c.b *= 0.15;
